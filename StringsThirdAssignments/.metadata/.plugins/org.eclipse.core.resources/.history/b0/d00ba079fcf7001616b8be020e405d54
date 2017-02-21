@@ -39,8 +39,23 @@ public class Part3 {
 		FileResource fr = new FileResource("brca1line.fa");
 		String dna = fr.asString();
 		System.out.print(dna);
-		StorageResource storage = temp1.getAllGenes(dna);
-		processGenes(storage);
+		StorageResource hello = temp1.getAllGenes(dna);
+		System.out.print("Below is the result for calling findGene() \n");
+		String test = temp1.findGene(dna);
+		int count = 0;
+		System.out.print(test + "\n");
+		System.out.print("Below is the result for testing ProcessGenes \n");
+		for(String s: hello.data()){
+			System.out.print(s + "\n");
+			System.out.print(count + "\n");
+			count ++;
+		}
+		int agtIndex = dna.indexOf("atg");
+		int tagIndex = dna.indexOf("tag");
+		int tgaIndex = dna.indexOf("tga");
+		int taaIndex = dna.indexOf("taa");
+		System.out.print(agtIndex + " " + tagIndex + " " + tgaIndex + " " + taaIndex);
+		//processGenes(storage);
 	}
 
 }
