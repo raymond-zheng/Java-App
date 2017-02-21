@@ -38,7 +38,7 @@ public class Part3 {
 	public void testProcessGenes(){
 		FileResource fr = new FileResource("brca1line.fa");
 		String dna = fr.asString();
-		System.out.print(dna);
+		//System.out.print(dna);
 		StorageResource hello = temp1.getAllGenes(dna);
 		System.out.print("Below is the result for calling findGene() \n");
 		String test = temp1.findGene(dna);
@@ -50,11 +50,6 @@ public class Part3 {
 			System.out.print(count + "\n");
 			count ++;
 		}
-		int agtIndex = dna.indexOf("atg");
-		int tagIndex = dna.indexOf("tag");
-		int tgaIndex = dna.indexOf("tga");
-		int taaIndex = dna.indexOf("taa");
-		System.out.print(agtIndex + " " + tagIndex + " " + tgaIndex + " " + taaIndex);
 		//processGenes(storage);
 	}
 

@@ -51,7 +51,7 @@ public class Part3 {
 			count ++;
 		}
 		int agtIndex = dna.indexOf("atg");
-		int tagIndex = dna.indexOf("tag");
+		int tagIndex = dna.indexOf("taa");
 		int tgaIndex = dna.indexOf("tga");
 		int taaIndex = dna.indexOf("taa");
 		System.out.print(agtIndex + " " + tagIndex + " " + tgaIndex + " " + taaIndex);
