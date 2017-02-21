@@ -1,0 +1,24 @@
+import edu.duke.*;
+public class Part3 {
+	Part2 temp2 = new Part2();
+	public void  processGenes(StorageResource sr){
+		int longerThan9 = 0;
+		int highCgRatio = 0;
+		System.out.print("The strings that with length no longer than 9 : \n");
+		for(String s: sr.data()){
+			if(s.length() <= 9){
+				System.out.print(s + "\n");
+			}else{
+				longerThan9 ++;
+			}
+			
+			System.out.print("\n The strings that have c-g-ratios greater than 0.35 : \n");
+			if(temp2.cgRatio(s) > 0.35){
+				System.out.print(s);
+				highCgRatio ++;
+			}
+			System.out.print("The number of strings that have c-g-ratios higher than 0.35 is " + highCgRatio +"\n");
+		}
+	}
+
+}

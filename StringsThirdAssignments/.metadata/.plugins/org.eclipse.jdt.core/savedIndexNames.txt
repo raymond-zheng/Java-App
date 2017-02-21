@@ -1,0 +1,3 @@
+INDEX VERSION 1.129+/Users/raymondz/Desktop/Github Projects/Java-Programs/StringsThirdAssignments/.metadata/.plugins/org.eclipse.jdt.core
+829079839.index
+1793922395.index

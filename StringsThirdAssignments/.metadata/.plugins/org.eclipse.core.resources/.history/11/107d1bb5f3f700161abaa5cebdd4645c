@@ -1,0 +1,8 @@
+
+public class RunPart3 {
+
+	public static void main(String[] args) {
+		testProcessGenes();
+	}
+
+}
