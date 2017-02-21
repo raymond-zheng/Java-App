@@ -39,7 +39,15 @@ public class Part1 {
 		//add one case, if taa , tag and taa are -1, should change the index of *next* atg
 		//* This is a critical point that solves the problem and bugs */
 		if(indexTAA == -1 && indexTAG == -1 && indexTGA == -1){
-			indexTAG = temp.indexOf("ATG",indexATG + 1);
+			indexATG = temp.indexOf("ATG",indexATG + 1);
+			while(indexATG != -1){
+				indexTAA = findStopCodon(dna,indexATG,"TAA");
+				indexTAG = findStopCodon(dna,indexATG,"TAG");
+				indexTGA = findStopCodon(dna,indexATG,"TGA");
+				if(indexTAA != -1 || indexTAG != -1 || indexTGA != -1){
+					break;
+				}
+			}
 		}
 		if(indexTAA ==-1  || (indexTAG != -1 && (indexTAG < indexTAA))){
 			minIndex = indexTAG;
@@ -71,7 +79,10 @@ public class Part1 {
 				break;
 			}
 			storage.add(tobePrint);
-			curIndex = curIndex + length;
+			curIndex = cur.indexOf("ATG",curIndex+length);
+			if(curIndex == -1){
+				break;
+			}
 		}
 		return storage;
 	}
