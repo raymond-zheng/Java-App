@@ -47,7 +47,7 @@ public class Part1 {
 				if(indexTAA != -1 || indexTAG != -1 || indexTGA != -1){
 					break;
 				}
-				indexATG = temp.indexOf("ATG",indexATG + 1);
+				//indexATG = temp.indexOf("ATG",indexATG + 1);
 			}
 		}
 		if(indexTAA ==-1  || (indexTAG != -1 && (indexTAG < indexTAA))){
