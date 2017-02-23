@@ -16,13 +16,13 @@ public class ParsingCSV
         System.out.print("\n");
 
         parser = fr.getCSVParser();
-        System.out.print("The countries that both export fish and nut: " + "\n");
-        listExportersTwoProducts(parser,"fish","nuts");
+        System.out.print("The countries that both export cotton and flowers: " + "\n");
+        listExportersTwoProducts(parser,"cotton","flowers");
         System.out.print("\n");
 
         parser = fr.getCSVParser();
-        System.out.print("The number of countries that export sugar" + "\n");
-        System.out.print(numberOfExporters(parser,"sugar"));
+        System.out.print("The number of countries that export cocoa" + "\n");
+        System.out.print(numberOfExporters(parser,"cocoa"));
         System.out.print("\n\n");
 
         System.out.print("The countries that has larger exports than $999,999,999,999" + "\n");
