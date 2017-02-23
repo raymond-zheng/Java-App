@@ -11,23 +11,23 @@ public class ParsingCSV
         CSVParser parser = fr.getCSVParser();
         //each time calling a new method needs resetting the parser
         //parser = fr.getCSVParser();
-        System.out.print("The information about Germany :" + "\n");
-        System.out.print(countryInfo(parser,"Germany"));
+        System.out.print("The information about  Nauru :" + "\n");
+        System.out.print(countryInfo(parser,"Nauru"));
         System.out.print("\n");
 
         parser = fr.getCSVParser();
-        System.out.print("The countries that both export coffee and tea: " + "\n");
-        listExportersTwoProducts(parser,"coffee","tea");
+        System.out.print("The countries that both export fish and nut: " + "\n");
+        listExportersTwoProducts(parser,"fish","nuts");
         System.out.print("\n");
 
         parser = fr.getCSVParser();
-        System.out.print("The number of countries that export motor vehicles" + "\n");
-        System.out.print(numberOfExporters(parser,"motor vehicles"));
+        System.out.print("The number of countries that export sugar" + "\n");
+        System.out.print(numberOfExporters(parser,"sugar"));
         System.out.print("\n\n");
 
-        System.out.print("The countries that has larger exports than $720,000,000" + "\n");
+        System.out.print("The countries that has larger exports than $999,999,999,999" + "\n");
         parser = fr.getCSVParser();
-        bigExporters(parser,"$720,000,000");
+        bigExporters(parser,"$999,999,999,999");
     }
 
     //part2
