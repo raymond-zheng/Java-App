@@ -8,8 +8,11 @@ public class RunBirths {
     public static void main(String[] args) {
         Births births = new Births();
         //births.testBirths();
-        //births.testGetRank();
+        births.testGetRank();
         //births.testGetName();
-        births.testWhatIsNameInYear();
+        //births.testWhatIsNameInYear();
+        //births.testyearOfHighestRank();
+        //births.testGetAverageRank();
+        //births.testGetTotalBirthsRankedHigher();
     }
 }
