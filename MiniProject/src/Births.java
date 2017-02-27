@@ -19,9 +19,9 @@ public class Births {
         for(CSVRecord r : parser){
             total += 1;
             if(r.get(1).equals("M")){
-                boysTotal ++;
-            }else{
-                girlsTotal ++ ;
+                boysTotal += Integer.parseInt(r.get(2));
+            }else if(r.get(1).equals("F")){
+                girlsTotal += Integer.parseInt(r.get(2)) ;
             }
         }
         System.out.print("There are " + boysTotal + " boys that were born in the year\n" );
@@ -31,7 +31,7 @@ public class Births {
 
     /*This method returns the rank of the name in the file for
      the given gender, where rank 1 is the name with the largest number of births.*/
-
+    //boys work but girls do not work
     public int getRank(int year,String name, String gender){
         File f = new File("/Users/raymondz/desktop/Github Projects/Java-Programs/MiniProject/us_babynames/us_babynames_by_year/yob" + Integer.toString(year) + ".csv");
         FileResource fr = new FileResource(f);
