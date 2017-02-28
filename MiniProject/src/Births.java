@@ -6,7 +6,11 @@ import edu.duke.*;
 import org.apache.commons.csv.*;
 import java.io.*;
 
-/*Use shift + command + / to block commment OR shift + / for line comment*/
+/*
+Use shift + command + / to block comment OR shift + / for line comment
+Every row of the .csv file is descending ordered
+*/
+
 
 public class Births {
     public void  totalBirths(){
@@ -32,58 +36,40 @@ public class Births {
 
     /*This method returns the rank of the name in the file for
      the given gender, where rank 1 is the name with the largest number of births.*/
-    //boys work but girls do not work
-    //The complexity of get rank is just n;
     public int getRank(int year,String name, String gender){
         File f = new File("/Users/raymondz/desktop/Github Projects/Java-Programs/MiniProject/us_babynames/us_babynames_by_year/yob" + Integer.toString(year) + ".csv");
         FileResource fr = new FileResource(f);
         CSVParser parser = fr.getCSVParser(false);
-        int count = 0;
-        int rank = 1;
+        int rank = 0;
         int found = 0;
         for(CSVRecord r : parser) {
-           /* works */
-            //System.out.print(r.get(0) + ", " + r.get(1) + ", " + r.get(2) + "\n");
-            if (r.get(1).equals(gender) && r.get(0).equals(name)) {
-                count = Integer.parseInt(r.get(2));
+            if(!(r.get(0).equals(name)) && r.get(1).equals(gender)){
+                rank += 1;
+            }else if(r.get(0).equals(name) && r.get(1).equals(gender)){
+                rank += 1;
                 found = 1;
-                //System.out.print(count + "\n");
                 break;
             }
         }
 
         if(found == 0){
             return -1;
+        }else{
+            return rank;
         }
-
-        parser = fr.getCSVParser(false);
-
-        for(CSVRecord r : parser){
-            /* works
-            System.out.print(r.get(0) + ", " + r.get(1) + ", " + r.get(2) + "\n");
-            */
-            //System.out.print(r.get(0) + "\n");
-            /* why the first row of csv file is not read ??*/
-            if(r.get(1).equals(gender) && Integer.parseInt(r.get(2)) > count){
-                rank += 1;
-            }
-        }
-        return rank;
-
     }
 
-    //The complexity(wrost case) of getName is n * n ;
     /*This method returns the name of the person in the file at this rank, for the given gender,
     where rank 1 is the name with the largest number of births*/
     public String getName(int year, int rank, String gender){
         File f = new File("/Users/raymondz/desktop/Github Projects/Java-Programs/MiniProject/us_babynames/us_babynames_by_year/yob" + Integer.toString(year) + ".csv");
         FileResource fr = new FileResource(f);
+        int currentRank = 1;
         CSVParser parser = fr.getCSVParser(false);
-        for(CSVRecord r : parser){
-            //System.out.print("each loop of getName\n");
-            if(getRank(year,r.get(0),gender) == rank && r.get(1).equals(gender)){
-                System.out.print("damn\n");
-                System.out.print(r.get(0)+"\n");
+        for(CSVRecord r : parser) {
+            if(r.get(1).equals(gender) && currentRank != rank){
+                currentRank ++;
+            }else if(r.get(1).equals(gender) && currentRank == rank){
                 return r.get(0);
             }
         }
@@ -108,7 +94,7 @@ public class Births {
         }
 
         rank = getRank(year,name,gender);
-        System.out.print("getRank finished , now getting name and the rank is " + rank + "\n" );
+        /*System.out.print("getRank finished , now getting name and the rank is " + rank + "\n" );*/
         return getName(newYear,rank,gender);
     }
 
@@ -159,13 +145,17 @@ public class Births {
     public int getTotalBirthsRankedHigher(int year, String name, String gender){
         int rank = getRank(year,name,gender);
         int count = 0;
+        int currentRank = 1;
         File f = new File("/Users/raymondz/desktop/Github Projects/Java-Programs/MiniProject/us_babynames/us_babynames_by_year/yob" + Integer.toString(year) + ".csv");
         FileResource fr = new FileResource(f);
         CSVParser parser = fr.getCSVParser(false);
         for(CSVRecord r: parser){
             System.out.print("each loop iteration of getTotalBirthsRankedHigher\n");
-            if( getRank(year,r.get(0),gender) < rank && r.get(1).equals(gender)){
+            if(currentRank < rank && r.get(1).equals(gender)){
                 count += Integer.parseInt(r.get(2));
+                currentRank ++;
+            }else if(currentRank == rank && r.get(1).equals(gender)){
+                return count;
             }
         }
         return count;
@@ -185,16 +175,12 @@ public class Births {
 
     /* works */
     public void testGetName(){
-        System.out.print("hello\n");
         System.out.print(getName(1980,350,"F") + "\n" );
-        System.out.print("finish\n");
     }
 
     /* works */
     public void testWhatIsNameInYear(){
-        System.out.print("testWhatIsNameInyear\n");
         System.out.print("Owen born in 1974 would be "+whatIsNameInYear("Owen",1974,2014)+" if he was born in 2014.\n");
-        System.out.print("testWhatIsNameInYear finished \n");
     }
 
     /* works */
@@ -204,10 +190,10 @@ public class Births {
 
     /* it seems works */
     public void testGetAverageRank(){
-        System.out.print("The average rank of Susan within selected years is "+getAverageRank("Robert","M") + "\n");
+        System.out.print("The average rank of Robert within selected years is "+getAverageRank("Robert","M") + "\n");
     }
 
     public void testGetTotalBirthsRankedHigher(){
-        System.out.print("The total birth ranked higher then Emily is " + getTotalBirthsRankedHigher(1990,"Emily","F") + "\n");
+        System.out.print("The total birth ranked higher then Drew is " + getTotalBirthsRankedHigher(1990,"Drew","M") + "\n");
     }
 }
