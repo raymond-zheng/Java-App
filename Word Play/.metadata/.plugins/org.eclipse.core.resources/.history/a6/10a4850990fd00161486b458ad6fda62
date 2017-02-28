@@ -1,0 +1,11 @@
+
+public class CaesarCipher {
+	/*Write the method encrypt that has two parameters, a String named input and 
+	an int named key. This method returns a String that has been encrypted using 
+	the Caesar Cipher algorithm explained in the videos. Assume that all the 
+	alphabetic characters are uppercase letters. For example, the call*/
+	public String encrypt(String input , int key){
+		
+		return " " ;
+	}
+}

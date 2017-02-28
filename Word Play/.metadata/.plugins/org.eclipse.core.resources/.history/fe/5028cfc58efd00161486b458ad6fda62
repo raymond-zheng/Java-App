@@ -1,0 +1,64 @@
+import edu.duke.*;
+
+public class WordPlay {
+//    This method returns true if ch is a vowel (one of 'a', 'e', 'i', 
+//    'o', or 'u' or the uppercase versions) and false otherwise.
+	public boolean isVowel(char ch){
+		ch = Character.toLowerCase(ch);
+		if(ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' ){
+			return true;
+		}
+		return false;
+	}
+	
+	// use println instead of print , thus avoid manually adding newline character
+	public void testIsVowel(){
+		System.out.println("a is vowel ? " + isVowel('a'));
+		System.out.println("U is vowel ? "+ isVowel('U') );
+		System.out.println("b is vowel ? " + isVowel('b'));
+	}
+	
+	//Write a method replaceVowels that has two parameters, a String 
+	//named phrase and a Char named ch. This method should return a 
+	//String that is the string phrase with all 
+	//the vowels (uppercase or lowercase) replaced by ch
+	public String replaceVowels(String phrase, char ch){
+		StringBuilder sb = new StringBuilder(phrase);
+		for(int i= 0; i < sb.length(); i ++){
+			if(isVowel(sb.charAt(i))){
+				sb.setCharAt(i, ch);
+			}
+		}
+		return sb.toString();
+	}
+	
+	public void testReplaceVowels(){
+		System.out.println("Hello World! Hello Raymond chars replaced by z becomes " +replaceVowels("Hello World! Hello Raymond", 'z') );
+		System.out.println("Computer science is really funny chars replaced by a becomes " + replaceVowels("Computer science is really funny",'a'));
+	}
+	
+	
+	/*Write a method emphasize with two parameters, a String named phrase and a character named ch. This method should return a String that is the string phrase but with the Char ch (upper- or lowercase) replaced by
+	‘*’ if it is in an odd number location in the string (e.g. the first character has an odd number location but an even index, it is at index 0), or
+	‘+’ if it is in an even number location in the string (e.g. the second character has an even number location but an odd index, it is at index 1).
+	For example, the call emphasize(“dna ctgaaactga”, ‘a’) would return the string “dn* ctg+*+ctg+”, and the call emphasize(“Mary Bella Abracadabra”, ‘a’) would return the string “M+ry Bell+ +br*c*d*br+”. Be sure to test this method.*/
+	public String emphasize(String phrase , char ch){
+		StringBuilder sb = new StringBuilder(phrase);
+		for(int i = 0 ; i < sb.length(); i++){
+			// even index
+			if(isVowel(sb.charAt(i)) && i % 2 == 0){
+				sb.setCharAt(i, '+');
+			}
+			//odd index
+			if(isVowel(sb.charAt(i)) && i % 2 == 1){
+				sb.setCharAt(i, '*');
+			}
+		}
+		return sb.toString();
+	}
+
+	
+	
+	
+	
+}

@@ -1,0 +1,11 @@
+
+public class runWordPaly {
+
+	public static void main(String[] args) {
+		WordPlay wordplay = new WordPlay();
+		wordplay.testIsVowel();
+		wordplay.testReplaceVowels();
+
+	}
+
+}
