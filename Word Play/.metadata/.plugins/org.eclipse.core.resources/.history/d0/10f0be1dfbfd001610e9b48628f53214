@@ -1,0 +1,11 @@
+import edu.duke.*;
+
+public class WordLengths {
+//	This method should read in the words from resource and count 
+//	the number of words 
+//	of each length for all the words in 
+//	resource, storing these counts in the array counts.
+	public void  countWordLengths(FileResource resource, int [] counts){
+			
+	}
+}

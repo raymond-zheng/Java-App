@@ -1,0 +1,47 @@
+import java.io.*;
+
+import edu.duke.*;
+
+public class WordLengths {
+//	This method should read in the words from resource and count 
+//	the number of words 
+//	of each length for all the words in 
+//	resource, storing these counts in the array counts.
+	public void  countWordLengths(FileResource resource, int [] counts){
+		//looping over each word of the file
+		for(String s : resource.words()){
+			//System.out.println(s);
+			int length = 0;
+			for(int i = 0; i < s.length(); i++){
+				if(Character.isLetter(s.charAt(i))){
+					length ++;
+				}
+			}
+			//System.out.println(length);
+			counts[length] += 1;
+		}
+	}
+	
+	public int indexOfMax(int[] values){
+		int max = 0;
+		int idx = -1;
+		for(int i = 0; i<values.length; i ++){
+			if(values[i] > max){
+				max = values[i];
+				idx = i;
+			}
+		}
+		return idx;
+	}
+	
+	/* test method */
+	public void testCountWordLengths(){
+		int counts[] = new int[31];
+		FileResource fr = new FileResource();
+		countWordLengths(fr,counts);
+		for(int i = 0 ; i< counts.length; i ++){
+			System.out.println("There are "+counts[i] +" words that have length " + i);
+		}
+		System.out.println("The most frequent length is " + indexOfMax(counts));
+	}
+}
