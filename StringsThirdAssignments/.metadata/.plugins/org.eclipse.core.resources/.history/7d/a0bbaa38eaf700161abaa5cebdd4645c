@@ -1,8 +1,0 @@
-
-public class RunPart1 {
-
-	public static void main(String[] args) {
-		testGetAllGenes();
-	}
-
-}
