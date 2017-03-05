@@ -1,0 +1,64 @@
+import edu.duke.*;
+
+public class TestCaesarCipher {
+	
+	private String alphabet = "abcdefghijklmnopqrstuvwxyz";
+
+	public int[] countLetters(String s){
+		int[] counts = new int[26];
+		for(int i = 0; i < s.length(); i++){
+			int idx = alphabet.indexOf(Character.toLowerCase((s.charAt(i))));
+			if(idx != -1){
+				counts[idx] += 1;
+			}
+		}
+		return counts;
+	};
+	
+	public int maxIndex(int[] a){
+		int maxIdx = -1;
+		int max = 0;
+		for(int i = 0; i<a.length;i++){
+			if(a[i] > max){
+				maxIdx = i;
+				/* please do not forget this important line */
+				max = a[i];
+			}
+		}
+		return maxIdx;
+	}
+	
+	public void simpleTests(){
+		FileResource fr= new FileResource();
+		/* do not use .toString(), it would return one line only, use .asString() instead */
+		//String input = fr.asString();
+		String encrypted = fr.asString();
+		//CaesarCipher cc18 = new CaesarCipher(18);
+		//System.out.println("The encrypted message is \n"+cc18.encrypt(input));
+		//System.out.println("The decrypted message is \n"+cc18.decrypt(input));
+		breakCaesarCipher(encrypted);
+	}
+	
+	public int getKey(String s){
+		int[] counts = countLetters(s);
+		int maxIdx = maxIndex(counts);
+		int dKey = maxIdx - 4 ;
+		if(maxIdx < 4){
+			dKey = 26-(4 - maxIdx);
+		}
+		return dKey;
+	}
+	
+	public void breakCaesarCipher(String input){
+		int dKey = getKey(input);
+		CaesarCipher ccDecrypt = new CaesarCipher(dKey);
+		System.out.println("The decrypted message is " + ccDecrypt.encrypt(input));
+	}
+	
+	
+//	public static void main(String[] args) {
+//	
+//
+//	}
+
+}

@@ -33,9 +33,14 @@ public class CaesarCipher {
 	public String encryptTwoKeys(String input, int key1, int key2){
 		String first = encrypt(input,key1);
 		String second = encrypt(input, key2);
+		int length1 = first.length();
+		int length2 = second.length();
 		StringBuilder sb = new StringBuilder(first);
-		for(int i = 1; i < sb.length(); i+= 2){
-			sb.setCharAt(i, second.charAt(i));
+		for(int i = 0; i < length1; i++){
+			sb.setCharAt(2*i, first.charAt(i));
+		}
+		for(int i = 0; i < length2; i++){
+			sb.setCharAt(2*i + 1, second.charAt(i));
 		}
 		return sb.toString();
 	}
