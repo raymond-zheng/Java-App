@@ -1,0 +1,14 @@
+import edu.duke.*;
+
+public class CaesarBreaker {
+	//countLetters, maxIndex, and decrypt
+	CaesarCipher cc = new CaesarCipher();
+	String message = cc.encrypt(encrypted, 26 - key);
+	
+	public int countLetters(){
+		int counts = int[27];
+		cc.countWordLengths(resource, counts);
+	};
+	
+	
+}

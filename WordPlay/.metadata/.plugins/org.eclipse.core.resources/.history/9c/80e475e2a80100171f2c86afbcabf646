@@ -1,0 +1,10 @@
+
+public class runCeaserBreaker {
+
+	public static void main(String[] args) {
+		CaesarBreaker cb = new CaesarBreaker();
+		//cb.testDecrypt();
+		cb.testHalfOfString();
+	}
+
+}

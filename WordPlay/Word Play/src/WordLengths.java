@@ -1,6 +1,6 @@
 import java.io.*;
-
 import edu.duke.*;
+
 
 public class WordLengths {
 //	This method should read in the words from resource and count 
@@ -13,11 +13,11 @@ public class WordLengths {
 			//System.out.println(s);
 			int length = 0;
 			for(int i = 0; i < s.length(); i++){
-				if(Character.isLetter(s.charAt(i))){
+				if(Character.isLetter(s.charAt(i)) || s.substring(i,i+1).contains("-")){
 					length ++;
 				}
 			}
-			//System.out.println(length);
+			System.out.println("testing: "+s + " with length " + length);
 			counts[length] += 1;
 		}
 	}
@@ -36,7 +36,7 @@ public class WordLengths {
 	
 	/* test method */
 	public void testCountWordLengths(){
-		int counts[] = new int[31];
+		int counts[] = new int[40];
 		FileResource fr = new FileResource();
 		countWordLengths(fr,counts);
 		for(int i = 0 ; i< counts.length; i ++){

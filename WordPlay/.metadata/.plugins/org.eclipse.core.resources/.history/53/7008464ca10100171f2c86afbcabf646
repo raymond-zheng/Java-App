@@ -1,0 +1,56 @@
+import edu.duke.*;
+
+public class CaesarBreaker {
+	//countLetters, maxIndex, and decrypt
+	//we assume that e is the most frequent letter in any text,
+	//and e's index is 4 , "abcde"
+	CaesarCipher cc = new CaesarCipher();
+	//String message = cc.encrypt(encrypted, 26 - key);
+	String alphabet = "abcdefghijklmnopqrstuvwxyz";
+	
+	public int[] countLetters(String s){
+		int[] counts = new int[26];
+		for(int i = 0; i < s.length(); i++){
+			int idx = alphabet.indexOf(Character.toLowerCase((s.charAt(i))));
+			if(idx != -1){
+				counts[idx] += 1;
+			}
+		}
+		return counts;
+	};
+	
+	public int maxIndex(int[] a){
+		int maxIdx = -1;
+		int max = 0;
+		for(int i = 0; i<a.length;i++){
+			if(a[i] > max){
+				maxIdx = i;
+			}
+		}
+		return maxIdx;
+	}
+	
+	//assumes that e is the most common letter in text 
+	public String decrypt(String encryptedMsg){
+		int[] counts = countLetters(encryptedMsg);
+		int maxIdx = maxIndex(counts);
+		//To determine how many index have been shifted from e, which is 4
+		int encryptionKey = maxIdx - 4;
+		if(maxIdx  < 4){
+			encryptionKey = 26- (4 -maxIdx);
+		}
+		return cc.encrypt(encryptedMsg, 26-encryptionKey);
+	}
+	
+	//should work..
+	public void testDecrypt(){
+		FileResource fr = new FileResource();
+		String wholeFileString = fr.asString();
+		wholeFileString = cc.encrypt(wholeFileString, 8);
+		System.out.println("The decrypted message is "+ decrypt(wholeFileString));
+	}
+	
+	
+	
+	
+}

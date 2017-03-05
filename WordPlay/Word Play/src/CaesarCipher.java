@@ -42,8 +42,10 @@ public class CaesarCipher {
 	
 	/* test method */ 
 	public void testEncryptTwoKeys(){
-		System.out.println("calling encryptTwoKeys(“First Legion”, 23, 17) will return " + encryptTwoKeys("First Legion", 23, 17));
-		System.out.println("calling encryptTwoKeys(“At noon be in the conference room with your hat on for a surprise party. YELL LOUD!”, 8, 21) will return " + encryptTwoKeys("At noon be in the conference room with your hat on for a surprise party. YELL LOUD!", 8, 21));
+		//System.out.println("calling encryptTwoKeys(“First Legion”, 23, 17) will return " + encryptTwoKeys("First Legion", 23, 17));
+		//System.out.println("calling encryptTwoKeys(“At noon be in the conference room with your hat on for a surprise party. YELL LOUD!”, 8, 21) will return " + encryptTwoKeys("At noon be in the conference room with your hat on for a surprise party. YELL LOUD!", 8, 21));
+		String encrypted = "Top ncmy qkff vi vguv vbg ycpx";
+		System.out.println(encryptTwoKeys(encrypted,26-2,26-20));
 	}
 	
 }
