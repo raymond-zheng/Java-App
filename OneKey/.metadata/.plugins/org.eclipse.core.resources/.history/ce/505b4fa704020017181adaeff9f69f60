@@ -1,0 +1,71 @@
+import edu.duke.*;
+
+public class TestCaesarCipherTwo {
+	
+	private String alphabet = "abcdefghijklmnopqrstuvwxyz";
+	
+	/* make this private since it is kinda a helper function */
+	private int[] countLetters(String s){
+		int[] counts = new int[26];
+		for(int i = 0; i < s.length(); i++){
+			int idx = alphabet.indexOf(Character.toLowerCase((s.charAt(i))));
+			if(idx != -1){
+				counts[idx] += 1;
+			}
+		}
+		return counts;
+	};
+	
+	/* make this private since it is kinda a helper function */
+	private int maxIndex(int[] a){
+		int maxIdx = -1;
+		int max = 0;
+		for(int i = 0; i<a.length;i++){
+			if(a[i] > max){
+				maxIdx = i;
+				/* plz do not forget this important line */
+				max = a[i];
+			}
+		}
+		return maxIdx;
+	}
+	
+	/* make this private since it is kinda a helper function */
+	/* returns an every-other string that starts from index start */
+	private String halfOfString(String message, int start){
+		String newS = "";
+		for(int i = start; i < message.length(); i += 2){
+			newS += message.substring(i,i+1);
+		}
+		return newS;
+	}
+	
+	/* make this private since it is kinda a helper function */
+	private int getKey(String s){
+		int[] counts = countLetters(s);
+		int maxIdx = maxIndex(counts);
+		int dKey = maxIdx - 4 ;
+		if(maxIdx < 4){
+			dKey = 26-(4 - maxIdx);
+		}
+		return dKey;
+	}
+	
+	public void simpleTests(){
+		FileResource fr = new FileResource();
+		String input = fr.asString();
+		CaesarCipherTwo cct = new CaesarCipherTwo(17,3);
+		System.out.println("encrypted : " + cct.encrypt(input));
+		System.out.println("decrypted : " + cct.decrypt(input));
+		breakCaesarCipher(input);
+	}
+	
+	public void breakCaesarCipher(String input){
+		String zero = halfOfString(input,0);
+		String first = halfOfString(input,1);
+		int key1 = getKey(zero);
+		int key2 = getKey(first);
+		CaesarCipherTwo cct = new CaesarCipherTwo(key1,key2);
+		System.out.println("Decrypted message is " + cct.decrypt(input));
+	}
+}

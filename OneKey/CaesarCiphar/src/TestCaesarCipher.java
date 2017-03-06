@@ -4,7 +4,8 @@ public class TestCaesarCipher {
 	
 	private String alphabet = "abcdefghijklmnopqrstuvwxyz";
 
-	public int[] countLetters(String s){
+	/* make this private since it is a helper function */
+	private int[] countLetters(String s){
 		int[] counts = new int[26];
 		for(int i = 0; i < s.length(); i++){
 			int idx = alphabet.indexOf(Character.toLowerCase((s.charAt(i))));
@@ -15,7 +16,8 @@ public class TestCaesarCipher {
 		return counts;
 	};
 	
-	public int maxIndex(int[] a){
+	/* make this private since it is a helper function */
+	private int maxIndex(int[] a){
 		int maxIdx = -1;
 		int max = 0;
 		for(int i = 0; i<a.length;i++){
@@ -39,7 +41,8 @@ public class TestCaesarCipher {
 		breakCaesarCipher(encrypted);
 	}
 	
-	public int getKey(String s){
+	/* make this private since it is a helper function */
+	private int getKey(String s){
 		int[] counts = countLetters(s);
 		int maxIdx = maxIndex(counts);
 		int dKey = maxIdx - 4 ;

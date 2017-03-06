@@ -14,7 +14,11 @@ public class CaesarCipher {
 		for(int i = 0; i < input.length(); i++){
 			int idx = alphabet.indexOf(Character.toLowerCase(sb.charAt(i)));
 			if(idx != -1){ /* it is an alphabet letter, avoiding index out of bound */
-				sb.setCharAt(i, shiftedAlphabet.charAt(idx));
+				if(Character.isUpperCase(sb.charAt(i))){
+					sb.setCharAt(i, Character.toUpperCase(shiftedAlphabet.charAt(idx)));
+				}else if(Character.isLowerCase(sb.charAt(i))){
+					sb.setCharAt(i, shiftedAlphabet.charAt(idx));
+				}
 			}
 		}
 		return sb.toString();
@@ -25,4 +29,9 @@ public class CaesarCipher {
 		CaesarCipher cc = new CaesarCipher(26-mainKey);
 		return cc.encrypt(input);
 	}
+	
+	/* note for myself: use this implementation to specify to println(currentClass) */
+	//	public String toString() { 	
+	//        return phrase + " is " + word + " repeated";
+	//    }
 }

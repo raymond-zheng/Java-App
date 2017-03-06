@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
 <application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_huUMsAH2EeeHE7_5xoyAKQ" elementId="org.eclipse.e4.legacy.ide.application" contributorURI="platform:/plugin/org.eclipse.platform" selectedElement="_huUMsQH2EeeHE7_5xoyAKQ" bindingContexts="_huUMswH2EeeHE7_5xoyAKQ">
-  <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;workbench>&#xA;&lt;mruList>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;CaesarCipherTwo.java&quot; tooltip=&quot;CaesarCiphar/src/CaesarCipherTwo.java&quot;>&#xA;&lt;persistable path=&quot;/CaesarCiphar/src/CaesarCipherTwo.java&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;TestCaesarCipherTwo.java&quot; tooltip=&quot;CaesarCiphar/src/TestCaesarCipherTwo.java&quot;>&#xA;&lt;persistable path=&quot;/CaesarCiphar/src/TestCaesarCipherTwo.java&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;TestCaesarCipher.java&quot; tooltip=&quot;CaesarCiphar/src/TestCaesarCipher.java&quot;>&#xA;&lt;persistable path=&quot;/CaesarCiphar/src/TestCaesarCipher.java&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;CaesarCipher.java&quot; tooltip=&quot;CaesarCiphar/src/CaesarCipher.java&quot;>&#xA;&lt;persistable path=&quot;/CaesarCiphar/src/CaesarCipher.java&quot;/>&#xA;&lt;/file>&#xA;&lt;/mruList>&#xA;&lt;/workbench>"/>
+  <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;workbench>&#xA;&lt;mruList>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;CaesarCipher.java&quot; tooltip=&quot;CaesarCiphar/src/CaesarCipher.java&quot;>&#xA;&lt;persistable path=&quot;/CaesarCiphar/src/CaesarCipher.java&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;TestCaesarCipherTwo.java&quot; tooltip=&quot;CaesarCiphar/src/TestCaesarCipherTwo.java&quot;>&#xA;&lt;persistable path=&quot;/CaesarCiphar/src/TestCaesarCipherTwo.java&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;RunTheseFunctions.java&quot; tooltip=&quot;CaesarCiphar/src/RunTheseFunctions.java&quot;>&#xA;&lt;persistable path=&quot;/CaesarCiphar/src/RunTheseFunctions.java&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;CaesarCipherTwo.java&quot; tooltip=&quot;CaesarCiphar/src/CaesarCipherTwo.java&quot;>&#xA;&lt;persistable path=&quot;/CaesarCiphar/src/CaesarCipherTwo.java&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;TestCaesarCipher.java&quot; tooltip=&quot;CaesarCiphar/src/TestCaesarCipher.java&quot;>&#xA;&lt;persistable path=&quot;/CaesarCiphar/src/TestCaesarCipher.java&quot;/>&#xA;&lt;/file>&#xA;&lt;/mruList>&#xA;&lt;/workbench>"/>
   <tags>activeSchemeId:org.eclipse.ui.defaultAcceleratorConfiguration</tags>
   <tags>ModelMigrationProcessor.001</tags>
   <children xsi:type="basic:TrimmedWindow" xmi:id="_huUMsQH2EeeHE7_5xoyAKQ" elementId="IDEWindow" contributorURI="platform:/plugin/org.eclipse.platform" selectedElement="_iQrS4QH2EeeHE7_5xoyAKQ" label="%trimmedwindow.label.eclipseSDK" x="42" y="22" width="1024" height="710">
@@ -83,7 +83,7 @@
                 <children xsi:type="advanced:Placeholder" xmi:id="_ifYdSgH2EeeHE7_5xoyAKQ" elementId="org.eclipse.egit.ui.RepositoriesView" toBeRendered="false" ref="_ifWBAAH2EeeHE7_5xoyAKQ"/>
               </children>
             </children>
-            <children xsi:type="basic:PartSashContainer" xmi:id="_ifYdSwH2EeeHE7_5xoyAKQ" containerData="7500" selectedElement="_ifYdTAH2EeeHE7_5xoyAKQ">
+            <children xsi:type="basic:PartSashContainer" xmi:id="_ifYdSwH2EeeHE7_5xoyAKQ" containerData="7500" selectedElement="_ifYdVQH2EeeHE7_5xoyAKQ">
               <children xsi:type="basic:PartSashContainer" xmi:id="_ifYdTAH2EeeHE7_5xoyAKQ" containerData="7500" selectedElement="_ifYdTQH2EeeHE7_5xoyAKQ" horizontal="true">
                 <children xsi:type="advanced:Placeholder" xmi:id="_ifYdTQH2EeeHE7_5xoyAKQ" elementId="org.eclipse.ui.editorss" containerData="7500" ref="_ifAp0AH2EeeHE7_5xoyAKQ"/>
                 <children xsi:type="basic:PartSashContainer" xmi:id="_ifYdTgH2EeeHE7_5xoyAKQ" containerData="2500">
@@ -98,13 +98,14 @@
                   </children>
                 </children>
               </children>
-              <children xsi:type="basic:PartStack" xmi:id="_ifYdVQH2EeeHE7_5xoyAKQ" elementId="bottom" containerData="2500" selectedElement="_ifYdVgH2EeeHE7_5xoyAKQ">
+              <children xsi:type="basic:PartStack" xmi:id="_ifYdVQH2EeeHE7_5xoyAKQ" elementId="bottom" containerData="2500" selectedElement="_ifYdWgH2EeeHE7_5xoyAKQ">
                 <tags>org.eclipse.e4.secondaryDataStack</tags>
+                <tags>active</tags>
                 <children xsi:type="advanced:Placeholder" xmi:id="_ifYdVgH2EeeHE7_5xoyAKQ" elementId="org.eclipse.ui.views.ProblemView" ref="_ifLo8gH2EeeHE7_5xoyAKQ"/>
                 <children xsi:type="advanced:Placeholder" xmi:id="_ifYdVwH2EeeHE7_5xoyAKQ" elementId="org.eclipse.jdt.ui.JavadocView" ref="_ifMQAAH2EeeHE7_5xoyAKQ"/>
                 <children xsi:type="advanced:Placeholder" xmi:id="_ifYdWAH2EeeHE7_5xoyAKQ" elementId="org.eclipse.jdt.ui.SourceView" ref="_ifM3EAH2EeeHE7_5xoyAKQ"/>
                 <children xsi:type="advanced:Placeholder" xmi:id="_ifYdWQH2EeeHE7_5xoyAKQ" elementId="org.eclipse.search.ui.views.SearchView" toBeRendered="false" ref="_ifM3EQH2EeeHE7_5xoyAKQ"/>
-                <children xsi:type="advanced:Placeholder" xmi:id="_ifYdWgH2EeeHE7_5xoyAKQ" elementId="org.eclipse.ui.console.ConsoleView" toBeRendered="false" ref="_ifNeIAH2EeeHE7_5xoyAKQ"/>
+                <children xsi:type="advanced:Placeholder" xmi:id="_ifYdWgH2EeeHE7_5xoyAKQ" elementId="org.eclipse.ui.console.ConsoleView" ref="_ifNeIAH2EeeHE7_5xoyAKQ"/>
                 <children xsi:type="advanced:Placeholder" xmi:id="_ifYdWwH2EeeHE7_5xoyAKQ" elementId="org.eclipse.ui.views.BookmarkView" toBeRendered="false" ref="_ifOFMAH2EeeHE7_5xoyAKQ"/>
                 <children xsi:type="advanced:Placeholder" xmi:id="_ifYdXAH2EeeHE7_5xoyAKQ" elementId="org.eclipse.ui.views.ProgressView" toBeRendered="false" ref="_ifOFMQH2EeeHE7_5xoyAKQ"/>
               </children>
@@ -142,32 +143,35 @@
       <tags>categoryTag:Help</tags>
     </sharedElements>
     <sharedElements xsi:type="advanced:Area" xmi:id="_ifAp0AH2EeeHE7_5xoyAKQ" elementId="org.eclipse.ui.editorss" selectedElement="_ifAp0QH2EeeHE7_5xoyAKQ">
-      <children xsi:type="basic:PartStack" xmi:id="_ifAp0QH2EeeHE7_5xoyAKQ" elementId="org.eclipse.e4.primaryDataStack" selectedElement="_asT60AH8EeeHE7_5xoyAKQ">
+      <children xsi:type="basic:PartStack" xmi:id="_ifAp0QH2EeeHE7_5xoyAKQ" elementId="org.eclipse.e4.primaryDataStack" selectedElement="_yZfoMAIEEeeVEv3oWQViZg">
         <tags>org.eclipse.e4.primaryDataStack</tags>
         <tags>EditorStack</tags>
-        <tags>active</tags>
         <children xsi:type="basic:Part" xmi:id="_sUoEEAH2EeeHE7_5xoyAKQ" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="CaesarCipher.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.png" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;CaesarCipher.java&quot; partName=&quot;CaesarCipher.java&quot; title=&quot;CaesarCipher.java&quot; tooltip=&quot;CaesarCiphar/src/CaesarCipher.java&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/CaesarCiphar/src/CaesarCipher.java&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;12&quot; selectionOffset=&quot;13&quot; selectionTopPixel=&quot;0&quot;/>&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;CaesarCipher.java&quot; partName=&quot;CaesarCipher.java&quot; title=&quot;CaesarCipher.java&quot; tooltip=&quot;CaesarCiphar/src/CaesarCipher.java&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/CaesarCiphar/src/CaesarCipher.java&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;1143&quot; selectionTopPixel=&quot;0&quot;/>&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
           <tags>removeOnHide</tags>
         </children>
         <children xsi:type="basic:Part" xmi:id="_yhJJUAH5EeeHE7_5xoyAKQ" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="TestCaesarCipher.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.png" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;TestCaesarCipher.java&quot; partName=&quot;TestCaesarCipher.java&quot; title=&quot;TestCaesarCipher.java&quot; tooltip=&quot;CaesarCiphar/src/TestCaesarCipher.java&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/CaesarCiphar/src/TestCaesarCipher.java&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;1446&quot; selectionTopPixel=&quot;0&quot;/>&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;TestCaesarCipher.java&quot; partName=&quot;TestCaesarCipher.java&quot; title=&quot;TestCaesarCipher.java&quot; tooltip=&quot;CaesarCiphar/src/TestCaesarCipher.java&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/CaesarCiphar/src/TestCaesarCipher.java&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;1194&quot; selectionTopPixel=&quot;0&quot;/>&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
           <tags>removeOnHide</tags>
         </children>
         <children xsi:type="basic:Part" xmi:id="_asT60AH8EeeHE7_5xoyAKQ" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="CaesarCipherTwo.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.png" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;CaesarCipherTwo.java&quot; partName=&quot;CaesarCipherTwo.java&quot; title=&quot;CaesarCipherTwo.java&quot; tooltip=&quot;CaesarCiphar/src/CaesarCipherTwo.java&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/CaesarCiphar/src/CaesarCipherTwo.java&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;416&quot; selectionTopPixel=&quot;0&quot;/>&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;CaesarCipherTwo.java&quot; partName=&quot;CaesarCipherTwo.java&quot; title=&quot;CaesarCipherTwo.java&quot; tooltip=&quot;CaesarCiphar/src/CaesarCipherTwo.java&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/CaesarCiphar/src/CaesarCipherTwo.java&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;1123&quot; selectionTopPixel=&quot;218&quot;/>&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
           <tags>removeOnHide</tags>
-          <tags>active</tags>
-          <tags>activeOnClose</tags>
         </children>
         <children xsi:type="basic:Part" xmi:id="_sqbtQAH8EeeHE7_5xoyAKQ" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="TestCaesarCipherTwo.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.png" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;TestCaesarCipherTwo.java&quot; partName=&quot;TestCaesarCipherTwo.java&quot; title=&quot;TestCaesarCipherTwo.java&quot; tooltip=&quot;CaesarCiphar/src/TestCaesarCipherTwo.java&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/CaesarCiphar/src/TestCaesarCipherTwo.java&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;0&quot; selectionTopPixel=&quot;0&quot;/>&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;TestCaesarCipherTwo.java&quot; partName=&quot;TestCaesarCipherTwo.java&quot; title=&quot;TestCaesarCipherTwo.java&quot; tooltip=&quot;CaesarCiphar/src/TestCaesarCipherTwo.java&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/CaesarCiphar/src/TestCaesarCipherTwo.java&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;2&quot; selectionOffset=&quot;1805&quot; selectionTopPixel=&quot;676&quot;/>&#xA;&lt;/editor>"/>
+          <tags>Editor</tags>
+          <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
+          <tags>removeOnHide</tags>
+        </children>
+        <children xsi:type="basic:Part" xmi:id="_yZfoMAIEEeeVEv3oWQViZg" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="RunTheseFunctions.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.png" closeable="true">
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;RunTheseFunctions.java&quot; partName=&quot;RunTheseFunctions.java&quot; title=&quot;RunTheseFunctions.java&quot; tooltip=&quot;CaesarCiphar/src/RunTheseFunctions.java&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/CaesarCiphar/src/RunTheseFunctions.java&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;908&quot; selectionTopPixel=&quot;0&quot;/>&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
           <tags>removeOnHide</tags>
@@ -214,7 +218,7 @@
         <tags>ViewMenu</tags>
         <tags>menuContribution:menu</tags>
       </menus>
-      <toolbar xmi:id="_ir9gsQH2EeeHE7_5xoyAKQ" elementId="org.eclipse.ui.views.ProblemView"/>
+      <toolbar xmi:id="_ir9gsQH2EeeHE7_5xoyAKQ" elementId="org.eclipse.ui.views.ProblemView" visible="false"/>
     </sharedElements>
     <sharedElements xsi:type="basic:Part" xmi:id="_ifMQAAH2EeeHE7_5xoyAKQ" elementId="org.eclipse.jdt.ui.JavadocView" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Javadoc" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/eview16/javadoc.png" tooltip="" closeable="true">
       <persistedState key="originalCompatibilityViewClass" value="org.eclipse.jdt.internal.ui.infoviews.JavadocView"/>
@@ -237,8 +241,16 @@
     <sharedElements xsi:type="basic:Part" xmi:id="_ifNeIAH2EeeHE7_5xoyAKQ" elementId="org.eclipse.ui.console.ConsoleView" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Console" iconURI="platform:/plugin/org.eclipse.ui.console/icons/full/cview16/console_view.png" tooltip="" closeable="true">
       <persistedState key="originalCompatibilityViewClass" value="org.eclipse.ui.internal.console.ConsoleView"/>
       <persistedState key="originalCompatibilityViewBundle" value="org.eclipse.ui.console"/>
+      <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;view/>"/>
       <tags>View</tags>
       <tags>categoryTag:General</tags>
+      <tags>active</tags>
+      <tags>activeOnClose</tags>
+      <menus xmi:id="_P11xcAIFEeeVEv3oWQViZg" elementId="org.eclipse.ui.console.ConsoleView">
+        <tags>ViewMenu</tags>
+        <tags>menuContribution:menu</tags>
+      </menus>
+      <toolbar xmi:id="_P11xcQIFEeeVEv3oWQViZg" elementId="org.eclipse.ui.console.ConsoleView"/>
     </sharedElements>
     <sharedElements xsi:type="basic:Part" xmi:id="_ifOFMAH2EeeHE7_5xoyAKQ" elementId="org.eclipse.ui.views.BookmarkView" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Bookmarks" iconURI="platform:/plugin/org.eclipse.ui.ide/icons/full/eview16/bkmrk_nav.png" tooltip="" closeable="true">
       <persistedState key="originalCompatibilityViewClass" value="org.eclipse.ui.internal.views.markers.BookmarksView"/>
@@ -307,7 +319,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_iS5gcAH2EeeHE7_5xoyAKQ" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_iTIJ8AH2EeeHE7_5xoyAKQ" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" enabled="false" command="_hvKhUQH2EeeHE7_5xoyAKQ"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_bHboMAIKEeeOPYvpVeXBxw" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_hvKhUQH2EeeHE7_5xoyAKQ"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_iS5gcQH2EeeHE7_5xoyAKQ" elementId="additions" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -331,7 +343,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_iS6ukAH2EeeHE7_5xoyAKQ" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_iTKmMAH2EeeHE7_5xoyAKQ" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_hvIsLgH2EeeHE7_5xoyAKQ"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_bHfSkAIKEeeOPYvpVeXBxw" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_hvIsLgH2EeeHE7_5xoyAKQ"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_iS6ukQH2EeeHE7_5xoyAKQ" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -721,7 +733,7 @@
     <bindings xmi:id="_hwO4QgH2EeeHE7_5xoyAKQ" keySequence="ALT+COMMAND+Q Q" command="_hvG2_QH2EeeHE7_5xoyAKQ">
       <tags>platform:cocoa</tags>
     </bindings>
-    <bindings xmi:id="_hxSoMQH2EeeHE7_5xoyAKQ" keySequence="COMMAND+CTRL+F" command="_hxSBIQH2EeeHE7_5xoyAKQ"/>
+    <bindings xmi:id="_aqlUIQIKEeeOPYvpVeXBxw" keySequence="COMMAND+CTRL+F" command="_hxSBIQH2EeeHE7_5xoyAKQ"/>
   </bindingTables>
   <bindingTables xmi:id="_hv46AgH2EeeHE7_5xoyAKQ" elementId="org.eclipse.jdt.ui.javaEditorScope" bindingContext="_hvQA3gH2EeeHE7_5xoyAKQ">
     <bindings xmi:id="_hv46AwH2EeeHE7_5xoyAKQ" keySequence="COMMAND+SHIFT+C" command="_hvDzoQH2EeeHE7_5xoyAKQ"/>
@@ -929,7 +941,7 @@
     <bindings xmi:id="_hwGVbQH2EeeHE7_5xoyAKQ" keySequence="ALT+CR" command="_hvDMgQH2EeeHE7_5xoyAKQ"/>
   </bindingTables>
   <bindingTables xmi:id="_hxTPQgH2EeeHE7_5xoyAKQ" contributorURI="platform:/fragment/org.eclipse.e4.ui.workbench.renderers.swt.cocoa" bindingContext="_huUMtgH2EeeHE7_5xoyAKQ">
-    <bindings xmi:id="_hxTPQwH2EeeHE7_5xoyAKQ" keySequence="M1+W" command="_hxTPQAH2EeeHE7_5xoyAKQ"/>
+    <bindings xmi:id="_aql7MAIKEeeOPYvpVeXBxw" keySequence="M1+W" command="_hxTPQAH2EeeHE7_5xoyAKQ"/>
   </bindingTables>
   <bindingTables xmi:id="_ifCfAQH2EeeHE7_5xoyAKQ" bindingContext="_ifCfAAH2EeeHE7_5xoyAKQ"/>
   <bindingTables xmi:id="_ifDGEQH2EeeHE7_5xoyAKQ" bindingContext="_ifDGEAH2EeeHE7_5xoyAKQ"/>

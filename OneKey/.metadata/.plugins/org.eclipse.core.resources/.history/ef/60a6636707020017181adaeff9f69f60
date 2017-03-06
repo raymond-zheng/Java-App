@@ -1,0 +1,12 @@
+
+public class RunTheseFunctions {
+
+	public static void main(String[] args) {
+		TestCaesarCipher tcc = new TestCaesarCipher();
+		TestCaesarCipherTwo tcct = new TestCaesarCipherTwo();
+		CaesarCipher cc15 = new CaesarCipher(15);
+		/* 1 */
+		System.out.println(cc15.encrypt("Can you imagine life WITHOUT the internet AND computers in your pocket?"));
+	}
+
+}
