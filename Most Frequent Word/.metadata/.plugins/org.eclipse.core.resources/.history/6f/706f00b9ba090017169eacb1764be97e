@@ -1,0 +1,14 @@
+import java.util.*;
+import edu.duke.*;
+
+public class CharactersInPlay {
+	private ArrayList<String> words;
+	private ArrayList<Integer> count;
+	
+	public CharactersInPlay(){
+		words = new ArrayList<String>();
+		count = new ArrayList<Integer>();
+	}
+	
+	
+}
