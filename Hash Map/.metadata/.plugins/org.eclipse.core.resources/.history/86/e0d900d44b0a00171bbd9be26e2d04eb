@@ -1,0 +1,13 @@
+
+public class run {
+
+	public static void main(String[] args) {
+		CodonCount cc = new CodonCount();
+		cc.test();
+		GladLibMap glm = new GladLibMap();
+		//glm.makeStory();
+		WordsInFiles wif = new WordsInFiles();
+		//wif.tester();
+	}
+
+}

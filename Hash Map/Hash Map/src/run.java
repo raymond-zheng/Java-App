@@ -5,9 +5,14 @@ public class run {
 		CodonCount cc = new CodonCount();
 		//cc.test();
 		GladLibMap glm = new GladLibMap();
-		glm.makeStory();
+		//glm.makeStory();
 		WordsInFiles wif = new WordsInFiles();
-		//wif.tester();
+	    //wif.tester();
+		wif.tester1();
+		WordFrequencies wf = new WordFrequencies();
+		CharactersInPlay cip = new CharactersInPlay();
+		//wf.tester();
+		//cip.tester();
 	}
 
 }

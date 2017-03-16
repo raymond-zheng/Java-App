@@ -72,4 +72,23 @@ public class WordsInFiles {
 		}
 	}
 	
+	public void tester1(){
+		buildWordFileMap();
+		int count = 0;
+		for(String s : occur.keySet()){
+			if(occur.get(s).size() == 4){
+				count ++;
+			}
+		}
+		System.out.println("The number of words that appear in 4 files is "+count);
+		System.out.println("laid");
+		for(int i = 0; i < occur.get("laid").size(); i++){
+			System.out.println(occur.get("laid").get(i));
+		}
+		System.out.println("tree");
+		for(int i = 0; i < occur.get("tree").size(); i ++){
+			System.out.println(occur.get("tree").get(i));
+		}
+	}
+	
 }
