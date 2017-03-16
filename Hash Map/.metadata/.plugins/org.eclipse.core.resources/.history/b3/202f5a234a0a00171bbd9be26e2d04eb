@@ -5,9 +5,9 @@ public class run {
 		CodonCount cc = new CodonCount();
 		//cc.test();
 		GladLibMap glm = new GladLibMap();
-		glm.makeStory();
+		//glm.makeStory();
 		WordsInFiles wif = new WordsInFiles();
-		//wif.tester();
+		wif.tester();
 	}
 
 }

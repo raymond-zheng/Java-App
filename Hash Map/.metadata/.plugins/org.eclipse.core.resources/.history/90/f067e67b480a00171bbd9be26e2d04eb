@@ -25,6 +25,7 @@ public class GladLibMap {
 		myMap = new HashMap<String, ArrayList<String>>();
 		for(int i = 0 ; i < label.length; i ++){
 			String curLabel = label[i];
+			System.out.println(curLabel +  "\t" + source+ "/" + curLabel +".txt");
 			myMap.put(curLabel,readIt(source+ "/" + curLabel +".txt"));
 		}
 		seen = new ArrayList<String>();
@@ -38,9 +39,6 @@ public class GladLibMap {
 	private String getSubstitute(String label) {
 		if(myMap.containsKey(label)){
 			return randomFrom(myMap.get(label));
-		}else if(label.contains("number")){
-			//cannot use label == "number" here, but use contains instead..
-			return ""+myRandom.nextInt(50)+5;
 		}
 		return "**UNKNOWN**";
 	}
@@ -122,35 +120,7 @@ public class GladLibMap {
 	public void makeStory(){
 		seen.clear();
 	    System.out.println("\n");
-	    // *** 
 		String story = fromTemplate("data/madtemplate2.txt");
 		printOut(story, 60);
-		System.out.println("\nThere are total " + totalWordsInMap() + " words can be chozed");
-		System.out.println("But there are only "+totalWordsConsidered() +" words considered ");
 	}
-	
-	public int totalWordsInMap(){
-		//loop over the map by keys
-		//loop over the map by index is not feasible??
-		int total = 0;
-		for(int i = 0 ; i < label.length ; i ++){
-			total += myMap.get(label[i]).size();
-		}
-		return total;
-	}
-	
-	public int totalWordsConsidered(){
-		FileResource fr = new FileResource("data/madtemplate2.txt");
-		String s = fr.asString();
-		int total = 0;
-		for(int i = 0; i < label.length; i ++){
-			//*** 
-			if(s.indexOf("<" + label[i] + ">") != -1){ //found
-				total += myMap.get(label[i]).size();
-			}
-		}
-		return total;
-	}
-	
-	
 }

@@ -122,11 +122,9 @@ public class GladLibMap {
 	public void makeStory(){
 		seen.clear();
 	    System.out.println("\n");
-	    // *** 
 		String story = fromTemplate("data/madtemplate2.txt");
 		printOut(story, 60);
-		System.out.println("\nThere are total " + totalWordsInMap() + " words can be chozed");
-		System.out.println("But there are only "+totalWordsConsidered() +" words considered ");
+		System.out.println("There are total " + totalWordsInMap() + " words can be chozed")
 	}
 	
 	public int totalWordsInMap(){
@@ -135,19 +133,6 @@ public class GladLibMap {
 		int total = 0;
 		for(int i = 0 ; i < label.length ; i ++){
 			total += myMap.get(label[i]).size();
-		}
-		return total;
-	}
-	
-	public int totalWordsConsidered(){
-		FileResource fr = new FileResource("data/madtemplate2.txt");
-		String s = fr.asString();
-		int total = 0;
-		for(int i = 0; i < label.length; i ++){
-			//*** 
-			if(s.indexOf("<" + label[i] + ">") != -1){ //found
-				total += myMap.get(label[i]).size();
-			}
 		}
 		return total;
 	}

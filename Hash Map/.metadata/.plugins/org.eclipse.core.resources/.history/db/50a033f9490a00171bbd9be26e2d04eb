@@ -6,8 +6,6 @@ public class run {
 		//cc.test();
 		GladLibMap glm = new GladLibMap();
 		glm.makeStory();
-		WordsInFiles wif = new WordsInFiles();
-		//wif.tester();
 	}
 
 }

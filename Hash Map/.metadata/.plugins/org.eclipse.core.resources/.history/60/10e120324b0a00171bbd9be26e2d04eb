@@ -126,7 +126,6 @@ public class GladLibMap {
 		String story = fromTemplate("data/madtemplate2.txt");
 		printOut(story, 60);
 		System.out.println("\nThere are total " + totalWordsInMap() + " words can be chozed");
-		System.out.println("But there are only "+totalWordsConsidered() +" words considered ");
 	}
 	
 	public int totalWordsInMap(){
