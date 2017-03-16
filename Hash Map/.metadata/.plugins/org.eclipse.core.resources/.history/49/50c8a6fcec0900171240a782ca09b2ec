@@ -1,0 +1,10 @@
+import edu.duke.*;
+import java.util.*;
+
+public class WordsInFiles {
+	private HashMap<String, ArrayList<String>> occur ;
+	
+	public WordsInFiles(){
+		occur =  new HashMap<String, ArrayList<String>>(;)
+	}
+}

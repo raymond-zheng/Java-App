@@ -1,0 +1,37 @@
+import java.util.*;
+
+public class CodonCount {
+	private HashMap<String, Integer> dnaCount;
+	
+	public CodonCount(){
+		dnaCount = new HashMap<String, Integer>();
+	}
+	
+	public void buildCodonMap(int start, String dna){
+		dnaCount.clear();
+		int cur = 0;
+		// ABCDEF 
+		while(cur + 3 <= dna.length()){
+			String codon = dna.substring(cur , cur+3);
+			if(dnaCount.containsKey(codon)){
+				dnaCount.put(codon,1);
+			}else{
+				dnaCount.put(codon, dnaCount.get(codon) + 1);
+			}
+		}
+	}
+	
+	public String getMostCommonCodon(){
+		int max = -1;
+		String maxDna = "";
+		for(String s: dnaCount.keySet()){
+			if(dnaCount.get(s) > max){
+				maxDna = s;
+			}
+		}
+		return maxDna;
+	}
+	
+	
+	
+}

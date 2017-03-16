@@ -1,0 +1,28 @@
+import edu.duke.*;
+import java.io.*;
+import java.util.*;
+
+public class WordsInFiles {
+	private HashMap<String, ArrayList<String>> occur ;
+	
+	public WordsInFiles(){
+		occur =  new HashMap<String, ArrayList<String>>();
+	}
+	
+	private void addWordsFromFile(File f){
+		FileResource fr = new FileResource(f);
+		for(String s: fr.words()){
+			if(occur.containsKey(s)){ //in the map
+				if(occur.get(s).indexOf(f.getName()) == -1){
+					//file name not in the ArrayList
+					//adding the filename to it
+					occur.get(s).add(f.getName());
+				}
+			}else{//not in the map
+				ArrayList<String> temp = new ArrayList<String>();
+				temp.add(f.getName());
+				occur.put(s, temp);
+			}
+		}
+	}
+}

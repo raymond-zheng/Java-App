@@ -1,0 +1,1 @@
+INDEX VERSION 1.129+/Users/raymondz/Desktop/Github Projects/Java-Programs/GladLib/.metadata/.plugins/org.eclipse.jdt.core

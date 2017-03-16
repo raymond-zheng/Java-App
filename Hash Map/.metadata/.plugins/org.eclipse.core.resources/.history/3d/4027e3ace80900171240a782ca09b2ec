@@ -1,0 +1,10 @@
+import java.util.*;
+
+public class CodonCount {
+	private HashMap<String, Integer> count;
+	
+	public CodonCount(){
+		count = new HashMap<String, Integer>();
+	}
+	
+}

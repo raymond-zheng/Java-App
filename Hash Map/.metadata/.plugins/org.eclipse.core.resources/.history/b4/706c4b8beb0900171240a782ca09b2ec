@@ -1,0 +1,66 @@
+import java.util.*;
+import edu.duke.*;
+
+public class CodonCount {
+	private HashMap<String, Integer> dnaCount;
+	
+	public CodonCount(){
+		dnaCount = new HashMap<String, Integer>();
+	}
+	
+	public void buildCodonMap(int start, String dna){
+		dnaCount.clear();
+		int cur = 0;
+		String codon = "";
+		// ABCDEF 
+		while(cur + 3 <= dna.length()){
+			codon = dna.substring(cur , cur+3);
+			if(!dnaCount.containsKey(codon)){
+				dnaCount.put(codon,1);
+			}else{
+				dnaCount.put(codon, dnaCount.get(codon) + 1);
+			}
+			cur += 3;
+		}
+	}
+	
+	public String getMostCommonCodon(){
+		int max = -1;
+		String maxDna = "";
+		for(String s: dnaCount.keySet()){
+			if(dnaCount.get(s) > max){
+				maxDna = s;
+				max = dnaCount.get(s);
+			}
+		}
+		return maxDna;
+	}
+	
+	/*This method prints all the codons in the HashMap along 
+	 * with their counts if their count is between start and 
+	 * end, inclusive
+	 */
+	public void printCodonCounts(int start , int end){
+		for(String s: dnaCount.keySet()){
+			if(start <= dnaCount.get(s) && dnaCount.get(s) <= end){
+				System.out.println(s + "\t" + dnaCount.get(s));
+			}
+		}
+	}
+	
+	public void test(){
+		FileResource fr = new FileResource();
+		String dna = fr.asString().toUpperCase();
+		//System.out.println(dna);
+		for(int i = 0 ; i< 2 ; i ++){
+			System.out.println("reading frame "+i);
+			buildCodonMap(i,dna);
+			System.out.println("The number of unique codons is " + dnaCount.size());
+			System.out.println("The most common codon is " + getMostCommonCodon() + ", " + dnaCount.get(getMostCommonCodon()));
+			printCodonCounts(1,10);
+		}	
+	}
+	
+	
+	
+}
