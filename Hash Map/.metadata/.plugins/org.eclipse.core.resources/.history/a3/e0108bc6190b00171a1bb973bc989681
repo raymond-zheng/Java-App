@@ -57,7 +57,7 @@ public class CodonCount {
 			buildCodonMap(i,dna);
 			System.out.println("The number of unique codons is " + dnaCount.size());
 			System.out.println("The most common codon is " + getMostCommonCodon() + ", " + dnaCount.get(getMostCommonCodon()));
-			printCodonCounts(1,15);
+			printCodonCounts(1,10);
 		}	
 	}
 	

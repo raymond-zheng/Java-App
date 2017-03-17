@@ -74,22 +74,18 @@ public class WordsInFiles {
 	
 	public void tester1(){
 		buildWordFileMap();
-		int count7 = 0;
-		int count4 = 0;
+		int count = 0;
 		for(String s : occur.keySet()){
-			if(occur.get(s).size() == 7){
-				count7 ++;
-			}else if(occur.get(s).size() == 4){
-				count4 ++;
+			if(occur.get(s).size() == 4){
+				count ++;
 			}
 		}
-		System.out.println("The number of words that appear in 7 files is "+count7);
-		System.out.println("The number of words that appear in 4 files is "+count4);
-		System.out.println("laid  appears in the following files:");
+		System.out.println("The number of words that appear in 4 files is "+count);
+		System.out.println("laid");
 		for(int i = 0; i < occur.get("laid").size(); i++){
 			System.out.println(occur.get("laid").get(i));
 		}
-		System.out.println("tree appears in the following files: ");
+		System.out.println("tree");
 		for(int i = 0; i < occur.get("tree").size(); i ++){
 			System.out.println(occur.get("tree").get(i));
 		}
