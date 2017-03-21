@@ -1,0 +1,40 @@
+
+/**
+ * Write a description of class LogAnalyzer here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
+ */
+
+import java.util.*;
+import edu.duke.*;
+
+
+public class LogAnalyzer
+{
+     private ArrayList<LogEntry> records;
+     //should not do the following, since WebLogParser is statis
+     //WebLogParser wlp = new WebLogParser();
+     
+     public LogAnalyzer() {
+         // complete constructor
+    	 records = new ArrayList<LogEntry>();
+     }
+        
+     public void readFile(String filename) {
+         // complete method
+    	 //File f = new File(filename);
+    	 FileResource fr = new FileResource(filename);
+    	 for(String l: fr.lines()){
+    		 records.add(WebLogParser.parseEntry(l));
+    	 }   	 
+     }
+        
+     public void printAll() {
+         for (LogEntry le : records) {
+             System.out.println(le);
+         }
+     }
+     
+     
+}
