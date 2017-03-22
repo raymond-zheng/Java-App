@@ -57,9 +57,5 @@ public class Tester
     	System.out.println(la.mostNumberVisitsByIP(la.countVisitsPerIP()));
     	
     	System.out.println(la. iPsMostVisits(la.countVisitsPerIP()));
-    	
-    	System.out.println(la.dayWithMostIPVisits(la.iPsForDays()));
-    	
-    	System.out.println(la. iPsWithMostVisitsOnDay(la.iPsForDays(),"Sep 30"));
     }
 }

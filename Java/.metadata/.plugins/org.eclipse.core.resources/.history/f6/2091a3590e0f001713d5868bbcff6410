@@ -50,16 +50,6 @@ public class Tester
     	la.readFile("weblog2_log");
     	System.out.println(la.countUniqueIPs());
     	
-    	System.out.println(la.uniqueIPVisitsOnDay("Sep 24").size());
-    	
-    	System.out.println(la.countUniqueIPsInRange(200,299));
-    	
-    	System.out.println(la.mostNumberVisitsByIP(la.countVisitsPerIP()));
-    	
-    	System.out.println(la. iPsMostVisits(la.countVisitsPerIP()));
-    	
-    	System.out.println(la.dayWithMostIPVisits(la.iPsForDays()));
-    	
-    	System.out.println(la. iPsWithMostVisitsOnDay(la.iPsForDays(),"Sep 30"));
+    	System.out.print(la.uniqueIPVisitsOnDay("Sep 24").size());
     }
 }

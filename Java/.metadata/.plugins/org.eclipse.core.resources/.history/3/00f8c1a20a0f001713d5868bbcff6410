@@ -158,39 +158,5 @@ public class LogAnalyzer
     	 return ipDays;
      }
      
-     public String dayWithMostIPVisits(HashMap<String, ArrayList<String>> ipDays){
-    	 int maxNum = -1;
-    	 String maxDate = null;
-    	 for(String date: ipDays.keySet()){
-    		 if(ipDays.get(date).size() > maxNum){
-    			 maxNum = ipDays.get(date).size();
-    			 maxDate = date;
-    		 }
-    	 }
-    	 return maxDate;
-     }
      
-     public  ArrayList<String> iPsWithMostVisitsOnDay(HashMap<String, ArrayList<String>> ipDays, String date){
-    	 ArrayList<String> mostIpDay = new ArrayList<String>();
-    	 ArrayList<String> ipsOfDay = ipDays.get(date);
-    	 
-    	 HashMap<String, Integer> tempCount = new HashMap<String, Integer>();
-    	
-    	 for(String ip : ipsOfDay){
-    		 if(!tempCount.containsKey(ip)){
-    			 tempCount.put(ip, 1);
-    		 }else{
-    			 tempCount.put(ip, tempCount.get(ip)+1);
-    		 }
-    	 }
-    	 
-    	 int mostNumOfDay = mostNumberVisitsByIP(tempCount);
-    	 
-    	 for(String ip : tempCount.keySet()){
-    		 if(tempCount.get(ip) == mostNumOfDay){
-    			 mostIpDay.add(ip);
-    		 }
-    	 }
-    	 return mostIpDay;
-     }
 }

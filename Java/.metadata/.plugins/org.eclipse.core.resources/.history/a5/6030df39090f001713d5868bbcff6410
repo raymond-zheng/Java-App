@@ -138,59 +138,23 @@ public class LogAnalyzer
     	 return ipMost;
      }
      
-     public HashMap<String, ArrayList<String>> iPsForDays(){
+     public HashMap<String, ArrayList<String>>  iPsForDays(){
     	 HashMap<String,ArrayList<String>> ipDays = new HashMap<String,ArrayList<String>>();
     	 for(LogEntry le: records){
-    		 //MMM DD 
-    		 String date = le.getAccessTime().toString().substring(4,10);
+    		 //MMM DD format
+    		 String date = le.getAccessTime().toString().substring(4,10);;
     		 String ipAdd = le.getIpAddress();
     		 if(! ipDays.containsKey(date)){
     			 ArrayList <String> ips = new ArrayList<String>();
     			 ips.add(ipAdd);
     			 ipDays.put(date, ips);
     		 }else{
-    			 //cannot use ipDays.put(data,ipDays.get(date).add(ipAdd)) here, since the second argument returns a boolen....)
-    			 ArrayList <String> temp = ipDays.get(date);
-    			 temp.add(ipAdd);
-    			 ipDays.put(date, temp);
-    		 }
-    	 }
-    	 return ipDays;
-     }
-     
-     public String dayWithMostIPVisits(HashMap<String, ArrayList<String>> ipDays){
-    	 int maxNum = -1;
-    	 String maxDate = null;
-    	 for(String date: ipDays.keySet()){
-    		 if(ipDays.get(date).size() > maxNum){
-    			 maxNum = ipDays.get(date).size();
-    			 maxDate = date;
-    		 }
-    	 }
-    	 return maxDate;
-     }
-     
-     public  ArrayList<String> iPsWithMostVisitsOnDay(HashMap<String, ArrayList<String>> ipDays, String date){
-    	 ArrayList<String> mostIpDay = new ArrayList<String>();
-    	 ArrayList<String> ipsOfDay = ipDays.get(date);
-    	 
-    	 HashMap<String, Integer> tempCount = new HashMap<String, Integer>();
-    	
-    	 for(String ip : ipsOfDay){
-    		 if(!tempCount.containsKey(ip)){
-    			 tempCount.put(ip, 1);
-    		 }else{
-    			 tempCount.put(ip, tempCount.get(ip)+1);
+    			 // boolen...
+    			 ArrayList<String> temp = ipDays.get(date);
+    			 ipDays.put(date, (ipDays.get(date)).add(ipAdd));
     		 }
     	 }
     	 
-    	 int mostNumOfDay = mostNumberVisitsByIP(tempCount);
-    	 
-    	 for(String ip : tempCount.keySet()){
-    		 if(tempCount.get(ip) == mostNumOfDay){
-    			 mostIpDay.add(ip);
-    		 }
-    	 }
-    	 return mostIpDay;
+    	 return null;
      }
 }
