@@ -1,0 +1,13 @@
+import edu.duke.*;
+
+public class TestEncryption {
+
+	public static void main(String[] args) {
+		CaesarCracker CCrackerNoKey = new CaesarCracker();
+		FileResource temp1 = new FileResource("data/Encryption/titus-small_key5.txt");
+		//cannot use toString() here, must use asString()
+		String s1 = temp1.asString();
+		System.out.println(CCrackerNoKey.decrypt(s1));
+	}
+
+}

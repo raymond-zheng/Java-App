@@ -1,0 +1,24 @@
+import edu.duke.*;
+
+public class TestEncryption {
+
+	public static void main(String[] args) {
+		CaesarCracker CCrackerNoKey = new CaesarCracker();
+		FileResource temp1 = new FileResource("data/Encryption/titus-small_key5.txt");
+		//cannot use toString() here, must use asString()
+		String s1 = temp1.asString();
+		System.out.println(CCrackerNoKey.decrypt(s1));
+		
+		//"rome" , which is [17,14,12,4]
+		int[] ROME = new int[]{17,14,12,4};
+		VigenereCipher vcROME = new VigenereCipher(ROME);
+		//calling its method toString
+		System.out.println("keys being used here");
+		System.out.println(vcROME);
+		System.out.println("encrypted message....");
+		System.out.println(vcROME.encrypt(s1));
+		System.out.println("decrypted message ....");
+		System.out.println(vcROME.decrypt(vcROME.encrypt(s1)));
+	}
+
+}
