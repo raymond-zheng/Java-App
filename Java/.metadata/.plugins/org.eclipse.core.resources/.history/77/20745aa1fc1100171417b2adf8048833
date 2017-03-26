@@ -2,6 +2,8 @@ import edu.duke.*;
 import java.util.*;
 
 public class VigenereCipher {
+	//ciphers is an array of CaesarCipher with the corresponding keys
+	//where each integer of key array is kinda like the 'index' of 26 alphabet letter
     CaesarCipher[] ciphers;
     
     public VigenereCipher(int[] key) {

@@ -40,7 +40,7 @@ public class TestEncryption {
 //		System.out.println(Arrays.toString(vb.tryKeyLength(s2, 5, 'e')));
 //		
 		
-        vb.breakVigenere();
+       vb.breakVigenere();
 //		
 //		//first q 
 //		FileResource fr3 = new FileResource("data/Encryption/secretmessage1.txt");

@@ -105,6 +105,7 @@ public class VigenereBreaker {
     }
     
     public void breakForAllLangs(String encrypted, HashMap<String, HashSet<String>> languages){
+    	//readDictionary returns a hashset
     	int max = -1;
     	String actualLanguage = "";
     	String actualDecrpyted = "";
