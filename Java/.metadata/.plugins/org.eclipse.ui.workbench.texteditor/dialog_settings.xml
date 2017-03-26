@@ -2,17 +2,20 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="ArrayList" key="selection"/>
+		<item value="HAMLET" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="ArrayList"/>
-			<item value="409"/>
-			<item value="408"/>
-			<item value="404"/>
-			<item value="filename"/>
+			<item value="Hamlet"/>
+			<item value="tragedy"/>
+			<item value="The tragedy of Hamlet"/>
+			<item value="The tragedy of "/>
+			<item value="the tragedy of hamlet, prince of denmark"/>
+			<item value="to"/>
+			<item value="The keys"/>
+			<item value="keys length"/>
 		</list>
 		<list key="replacehistory">
 		</list>

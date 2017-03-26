@@ -1,11 +1,12 @@
 import java.util.Arrays;
+import java.util.HashSet;
 
 import edu.duke.*;
 
 public class TestEncryption {
 
 	public static void main(String[] args) {
-		CaesarCracker CCrackerNoKey = new CaesarCracker();
+		//CaesarCracker CCrackerNoKey = new CaesarCracker();
 //		FileResource fr0 = new FileResource("data/Encryption/titus-small_key5.txt");
 //		//cannot use toString() here, must use asString()
 //		String s0 = fr0.asString();
@@ -38,8 +39,8 @@ public class TestEncryption {
 //		String s2 = fr2.asString();
 //		System.out.println(Arrays.toString(vb.tryKeyLength(s2, 5, 'e')));
 //		
-//		
-//		//vb.breakVigenere();
+		
+       vb.breakVigenere();
 //		
 //		//first q 
 //		FileResource fr3 = new FileResource("data/Encryption/secretmessage1.txt");
@@ -47,7 +48,17 @@ public class TestEncryption {
 //		//English => mostCommon is 'e'
 //		System.out.println(Arrays.toString(vb.tryKeyLength(s3, 4,'e')));
 		
-		vb.breakVigenere();
+		//vb.breakVigenere();	
+		FileResource fr4 = new FileResource("data/Encryption/secretmessage2.txt");
+		FileResource fr5 = new FileResource("data/Encryption/English");
+		String s4 = fr4.asString();
+		
+		int keys[] = vb.tryKeyLength(s4,38,'e');
+		VigenereCipher vc = new VigenereCipher(keys);
+ 		System.out.println(vb.countWords(vc.decrypt(s4),vb.readDictionary(fr5)));
+
+		
+		
 		
 	}
 

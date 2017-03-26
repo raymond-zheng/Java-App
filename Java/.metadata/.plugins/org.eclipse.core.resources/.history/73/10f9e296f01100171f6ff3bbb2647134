@@ -1,0 +1,111 @@
+import java.util.*;
+import edu.duke.*;
+
+public class VigenereBreaker {
+	
+	private int keyLengthGlobal = -1;
+	private int[] keysGlobal;
+	private int validWordsGlobal;
+	//OK..
+    public String sliceString(String message, int whichSlice, int totalSlices) {
+        //REPLACE WITH YOUR CODE
+    	String temp = "";
+    	for(int i = whichSlice; i < message.length(); i += totalSlices){
+    		temp += message.substring(i, i+1);
+    	}
+    	
+        return temp;
+    }
+
+    //OK..
+    public int[] tryKeyLength(String encrypted, int klength, char mostCommon) {
+        int[] key = new int[klength];
+        //by default the most common character is 'e'..
+        CaesarCracker cc = new CaesarCracker(mostCommon);
+        for(int i = 0; i < klength; i ++){
+        	String temp = sliceString(encrypted, i, klength);
+        	key[i] = cc.getKey(temp);
+        }
+        return key;
+    }
+
+    //OK..
+    public void breakVigenere () {
+    	//default constructor.. 
+    	FileResource fr = new FileResource("data/Encryption/secretmessage2.txt");
+    	String s = fr.asString();
+    	//using 5 as klength and 'e' as most common for now
+    	
+    	
+    	FileResource frDic = new FileResource("data/Encryption/English");
+    	HashSet<String> commonWords = readDictionary(frDic);
+//    	int key[] = tryKeyLength(s,4,'e');
+//    	VigenereCipher vc = new VigenereCipher(key);
+    	String decrypted = breakForLanguage(s,commonWords);
+    	System.out.println(decrypted);
+    	System.out.println("The key length is " + keyLengthGlobal);
+    	System.out.println("The keys being used are " + Arrays.toString(keysGlobal));
+    	System.out.println("The number of valid words is " + validWordsGlobal);
+    	//System.out.println(vc.decrypt(s));
+    }
+    
+    //extension 1 
+    public HashSet<String> readDictionary(FileResource fr){
+    	HashSet<String> hs = new HashSet<String>();
+    	for(String s: fr.lines()){
+    		String lower = s.toLowerCase();
+    		if(!hs.contains(lower)){
+    			hs.add(lower);
+    		}
+    	}
+    	return hs;
+    }
+    
+    //valid words count
+    public int countWords(String message, HashSet<String> dictionary){
+    	String[] array = message.split("\\W");
+    	int c = 0;
+    	//do not have to use indexing for loop
+//    	for(int i = 0; i < array.length; i ++ ){
+//    		
+//    	}
+    	//use this simplified for loop instead
+    	for(String s: array){
+    		String word = s.toLowerCase();
+    		if(dictionary.contains(word)){
+    			c ++;
+    		}
+    	}
+    	return c;
+    }
+    
+    public String breakForLanguage(String encrypted, HashSet<String> dictionary){
+    	int max = -1;
+    	int keyLength = -1;
+    	String realDecrypted = "";
+    	for(int i = 1; i <= 100; i++){
+//    		System.out.println(i);
+    		int[] keys = tryKeyLength(encrypted, i, 'e');
+    		VigenereCipher vc = new VigenereCipher(keys);
+    		String decrypted = vc.decrypt(encrypted);
+    		int currentCount = countWords(decrypted,dictionary);
+    		if(currentCount > max){
+    			max = currentCount;
+    			keyLength = i;
+    			realDecrypted = decrypted;
+    		}
+    	}
+    	keyLengthGlobal = keyLength; 
+    	validWordsGlobal = max;
+    	keysGlobal = tryKeyLength(encrypted,keyLengthGlobal,'e');
+   	
+    	return realDecrypted;
+ 	
+    }
+    
+    
+    
+    
+    
+    
+}
