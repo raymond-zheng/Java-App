@@ -1,0 +1,21 @@
+
+public class DistanceFilter implements Filter {
+	
+	private Location location;
+	private double maxDistance;
+	
+	//constructor
+	public DistanceFilter(Location loc, double maxDis){
+		location = loc;
+		maxDistance = maxDis;
+	}
+	
+	@Override
+	public boolean satisfies(QuakeEntry qe) {
+		if(location.distanceTo(qe.getLocation()) <= maxDistance){
+			return true;
+		}
+		return false;
+	}
+
+}

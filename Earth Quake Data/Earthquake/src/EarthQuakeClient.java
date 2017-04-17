@@ -79,7 +79,75 @@ public class EarthQuakeClient {
         	//System.out.println("hello");
         }
     }
-
+    
+    //exclusive,done
+    public ArrayList<QuakeEntry> filterByDepth(ArrayList<QuakeEntry> quakeData,
+    		double minDepth, double maxDepth){
+    	ArrayList<QuakeEntry> list = new ArrayList<QuakeEntry>();
+    	for(QuakeEntry qe: quakeData){
+    		double qeDepth = qe.getDepth();
+    		if(minDepth < qeDepth && qeDepth < maxDepth){
+    			list.add(qe);
+    		}
+    	}
+    	return list;
+    }
+    
+    //done
+    public void quakesOfDepth(){
+    	EarthQuakeParser parser = new EarthQuakeParser();
+    	String source = "data/nov20quakedata.atom";
+    	ArrayList<QuakeEntry> list  = parser.read(source);
+    	System.out.println("size before: " + list.size());
+    	ArrayList<QuakeEntry> listOfDepth = filterByDepth(list,  -4000.0 , -2000.0);
+    	System.out.println("size after: " + listOfDepth.size());
+    	for(QuakeEntry qe: listOfDepth){
+    		System.out.println(qe);
+    	}
+    	//System.out.println(("hello").equals("hello"));
+    	System.out.println("Found " + listOfDepth.size() +  " quakes that match that criteria");
+    }
+    
+    //done
+    public ArrayList<QuakeEntry> filterByPhrase(ArrayList<QuakeEntry> quakeData, 
+    		String where, String phrase){
+    	ArrayList<QuakeEntry> newList = new ArrayList<QuakeEntry>();
+    	for(QuakeEntry qe:quakeData){
+    		String qeTitle = qe.getInfo();
+    		if(where.equals("start")){
+    			if(qeTitle.indexOf(phrase) == 0){
+    				newList.add(qe);
+    			}
+    		}else if(where.equals("end")){
+    			if(qeTitle.indexOf(phrase) != -1 && qeTitle.indexOf(phrase) + phrase.length() == qeTitle.length()){
+    				newList.add(qe);
+    			}
+    		}else if(where.equals("any")){
+    			if(qeTitle.indexOf(phrase) != -1){
+    				newList.add(qe);
+    			}
+    		}
+    	}
+    	return newList;
+    }
+    
+    //any, start, end work
+    public void  quakesByPhrase(){
+    	EarthQuakeParser parser = new EarthQuakeParser();
+    	String source = "data/nov20quakedata.atom";
+    	ArrayList<QuakeEntry> list  = parser.read(source);
+    	System.out.println("size before: " + list.size());
+    	ArrayList<QuakeEntry> newList = filterByPhrase(list,"any","Can");
+    	//int i = 0;
+    	for(QuakeEntry qe: newList){
+    		//i ++ ;
+    		//System.out.println(i);
+    		System.out.println(qe);	
+    	}
+    	System.out.println("There are " + newList.size() + " quakes in quakesByPhrase");
+    	//System.out.println("Found " + newList.size() + " quakes that match California at end" );
+    }
+ 
     public void createCSV(){
         EarthQuakeParser parser = new EarthQuakeParser();
         String source = "data/nov20quakedatasmall.atom";
