@@ -1,0 +1,6 @@
+
+public class main {
+	QuakeSortInPlace qsip = new QuakeSortInPlace();
+	qsip.testSort();
+	
+}
