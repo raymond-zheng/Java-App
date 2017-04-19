@@ -117,21 +117,6 @@ public class QuakeSortInPlace {
     	
     }
     
-    public void sortByMagnitudeWithCheck(ArrayList<QuakeEntry> in){
-    	for (int i=0; i< in.size(); i++) {
-            int minIdx = getSmallestMagnitude(in,i);
-            QuakeEntry qi = in.get(i);
-            QuakeEntry qmin = in.get(minIdx);
-            in.set(i,qmin);
-            in.set(minIdx,qi);
-            if(checkInSortedOrder(in)){
-            	System.out.println("used "+ (i+1) +" passes to finish sorting");
-            	break;
-            }
-        }
-    	
-    }
-    
     
     public void testSort() {
         EarthQuakeParser parser = new EarthQuakeParser(); 
@@ -151,16 +136,13 @@ public class QuakeSortInPlace {
         //works
         //sortByLargestDepth(list);
         //sortByMagnitudeWithBubbleSort(list);
-        //sortByMagnitudeWithBubbleSortWithCheck(list);
-        sortByMagnitudeWithCheck(list);
+        sortByMagnitudeWithBubbleSortWithCheck(list);
         System.out.println("EarthQuakes in sorted order:");
         for (QuakeEntry qe: list) { 
         	System.out.println(qe);
         } 
         
     }
-    
-
  
     
     
