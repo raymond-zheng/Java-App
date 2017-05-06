@@ -1,0 +1,17 @@
+import java.util.ArrayList;
+
+public class Tester {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Tester tester = new Tester();
+	}
+	
+	public void testGetFollows(){
+		MarkovOne mOne = new MarkovOne();
+		mOne.setTraining("this is a test yes this is a test.");
+		ArrayList<String> follows = mOne.getFollows("t");
+		System.out.println(follows);
+	}
+
+}

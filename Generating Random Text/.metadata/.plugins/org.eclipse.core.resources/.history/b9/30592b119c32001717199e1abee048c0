@@ -1,0 +1,88 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Random;
+
+public class EfficientMarkovModel extends AbstractMarkovModel{
+
+	private int N;
+	private HashMap <String,ArrayList<String>> hm;
+	
+	public EfficientMarkovModel(int n) {
+		myRandom = new Random();
+		N = n;
+		hm = new HashMap<String,ArrayList<String>>();
+	}
+	
+	public void setTraining(String s) {
+	    myText = s.trim();
+	    //should call buildMap here
+	}
+	
+	
+	public void buildMap(String key){
+		ArrayList<String> follows = getFollows(key);
+		//NOTE: follows may be empty(i.e., size zero)
+		hm.put(key, follows);
+	}
+	
+	public ArrayList<String> getFollows(String key){
+		return hm.get(key);
+	}
+	
+	public String getRandomText(int numChars){
+		if (myText == null){
+			return "";
+		}
+		StringBuilder sb = new StringBuilder();
+		int idx = myRandom.nextInt(myText.length() - N);
+		String key = myText.substring(idx, idx + N);
+		
+		//every time a *new* key is generated, should check and call buildMap once
+		if(!hm.containsKey(key)){
+			buildMap(key);
+		}
+		
+		sb.append(key);
+		
+		
+		
+		//already append N characters before the for loop
+		for(int  i = 0 ; i < numChars - N  ; i ++){
+			ArrayList<String> follows = getFollows(key);
+			
+			//if follows is empty, continue to the next key
+			if(follows.size() == 0){
+				break;
+			}
+			
+			idx = myRandom.nextInt(follows.size());
+			String temp = follows.get(idx);
+			sb.append(temp);
+			
+			//WRONG: key = sb.substring(i-3,i+1);
+			//CORRECT: 
+			key = key.substring(1) + temp;
+			
+			if(!hm.containsKey(key)){
+				buildMap(key);
+			}
+		}
+		
+		return sb.toString();
+	
+	}
+
+	
+	public String toString(){
+		return "Efficient MarkovModel of order " + N;
+	}
+	
+	
+	//TEES methods 
+	public void  printHashMapInfo(){
+		
+		
+	}
+	
+
+}

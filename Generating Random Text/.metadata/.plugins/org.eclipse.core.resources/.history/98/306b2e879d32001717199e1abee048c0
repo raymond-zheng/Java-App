@@ -1,0 +1,12 @@
+
+public class Run {
+
+	public static void main(String[] args) {
+		//MarkovRunnerWithInterface mr = new MarkovRunnerWithInterface();
+		//mr.runMarkov();
+		EfficientMarkovModel emm = new EfficientMarkovModel(2);
+		
+		
+	}
+
+}

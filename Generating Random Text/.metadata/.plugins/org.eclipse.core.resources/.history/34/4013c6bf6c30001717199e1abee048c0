@@ -1,0 +1,68 @@
+import java.util.ArrayList;
+import java.util.Random;
+
+public class MarkovOne {
+	//training text 
+    private String myText;
+    //used to generate a random number
+	private Random myRandom;
+	
+	public MarkovOne() {
+		myRandom = new Random();
+	}
+	
+	//define the behavior of randomness
+	public void setRandom(int seed){
+		myRandom = new Random(seed);
+	}
+	
+	public void setTraining(String s){
+		myText = s.trim();
+	}
+	
+	public String getRandomText(int numChars){
+		if (myText == null){
+			return "";
+		}
+		StringBuilder sb = new StringBuilder();
+		for(int k=0; k < numChars; k++){
+			if( k == 0){
+				int index = myRandom.nextInt(myText.length());
+				sb.append(myText.charAt(index));
+			}else{
+				String cur = sb.substring(k, k+1);
+				ArrayList<String> follows = getFollows(cur);
+				int index = myRandom.nextInt(follows.size());
+				sb.append(follows.get(index));
+			}
+			
+		}
+		
+		return sb.toString();
+	}
+	
+	//works
+	public ArrayList<String> getFollows(String key){ 
+		ArrayList<String> follows = new ArrayList<String>();
+		int pos = 0;
+		while(pos < myText.length()){
+			int idx = myText.indexOf(key,pos);
+			//key not found 
+			if(idx == -1){
+				break;
+			}
+			//out of bound
+			if(idx + key.length() >= myText.length()){
+				break;
+			}
+			follows.add(myText.substring(idx+key.length(), idx +key.length() +1));
+			//for string "helloe" , indexOf(h) + "hello".length() == indexOf(e)
+			pos = idx + key.length();
+				
+		}
+		return follows;
+	}
+	
+	
+	
+}

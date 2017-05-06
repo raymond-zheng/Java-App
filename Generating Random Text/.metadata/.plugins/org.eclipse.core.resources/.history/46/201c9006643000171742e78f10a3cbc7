@@ -1,0 +1,16 @@
+import java.util.ArrayList;
+
+public class Tester {
+
+	
+	public void testGetFollows(){
+		MarkovOne mOne = new MarkovOne();
+		mOne.setTraining("this is a test yes this is a test.");
+		ArrayList<String> follows = mOne.getFollows("t");
+		System.out.println(follows.size());
+		for(int i = 0 ; i < follows.size() ; i ++){
+			System.out.println(follows.get(i));
+		}
+	}
+
+}

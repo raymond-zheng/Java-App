@@ -1,0 +1,115 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Random;
+
+public class EfficientMarkovModel extends AbstractMarkovModel{
+
+	private int N;
+	private HashMap <String,ArrayList<String>> hm;
+	
+	public EfficientMarkovModel(int n) {
+		myRandom = new Random();
+		N = n;
+		hm = new HashMap<String,ArrayList<String>>();
+	}
+	
+	public void setTraining(String s) {
+	    myText = s.trim();
+	    //should call buildMap here
+	    buildMap();
+	}
+	
+	
+	public void buildMap(){
+		for(int i = 0; i < myText.length() - N + 1  ; i++){
+			String key = myText.substring(i, i+N);
+			if(hm.containsKey(key)){
+				//appending the character after it
+				String follow = myText.substring(i+N,i+N+1);
+				//WRONG: adding to the ArrayList if not there
+				//CORRECT: since needs to represent probability, add the follow to the ArrayList every time
+				hm.get(key).add(follow);
+				
+			}else{
+				ArrayList<String> follows = new ArrayList<String>();
+				follows.add(myText.substring(i+N,i+N+1));
+				hm.put(key, follows);
+			}
+		}
+	}
+	
+	public ArrayList<String> getFollows(String key){
+		return hm.get(key);
+	}
+
+	
+	public String getRandomText(int numChars){
+		if (myText == null){
+			return "";
+		}
+		StringBuilder sb = new StringBuilder();
+		int idx = myRandom.nextInt(myText.length() - N);
+		String key = myText.substring(idx, idx + N);
+		
+		
+		sb.append(key);
+		
+		
+		
+		//already append N characters before the for loop
+		for(int  i = 0 ; i < numChars - N  ; i ++){
+			ArrayList<String> follows = getFollows(key);
+			
+			//if follows is empty
+			if(follows == null || follows.size() == 0){
+				break;
+			}
+			
+			idx = myRandom.nextInt(follows.size());
+			String temp = follows.get(idx);
+			sb.append(temp);
+			
+			//WRONG: key = sb.substring(i-3,i+1);
+			//CORRECT: 
+			key = key.substring(1) + temp;
+			
+		}
+		
+		return sb.toString();
+	
+	}
+
+	
+	public String toString(){
+		return "Efficient MarkovModel of order " + N;
+	}
+	
+	
+	//TEES methods 
+	public void  printHashMapInfo(){
+		//HashMap size is small
+		System.out.println("Printing all the elements in the HashMap");
+		if(hm.size() <= 30){
+			for(String key: hm.keySet()){
+				System.out.println("Key " + key + " : " + hm.get(key));
+			}
+		}
+		
+		//printing how many keys are in the hashmap
+		System.out.println("There are " + hm.keySet().size() + " keys in the hashmap");
+		
+		//printing the largest size of the hash map
+		int max = -1;
+		String maxKey = "";
+		for(String key: hm.keySet()){
+			if(hm.get(key).size() > max){
+				max = hm.get(key).size();
+				maxKey = key;
+			}
+		}
+		System.out.println("The key "+ maxKey + " has the largest size of follows : " + max);
+		
+	}
+	
+
+}
