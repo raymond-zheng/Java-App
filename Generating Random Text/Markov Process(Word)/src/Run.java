@@ -1,0 +1,15 @@
+
+public class Run {
+
+	public static void main(String[] args) {
+		//MarkovWordOne mwo = new MarkovWordOne();
+		//mwo.testIndexOf();
+		MarkovRunner mr = new MarkovRunner();
+		//mr.testWithString();
+		//mr.runMarkov();
+		mr.runMarkovTwo();
+		//MarkovWordTwo mwt = new MarkovWordTwo();
+		//mwt.testIndexOf();
+	}
+
+}
