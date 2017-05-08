@@ -5,7 +5,9 @@ public class Run {
 		MarkovRunnerWithInterface mr = new MarkovRunnerWithInterface();
 		//mr.runMarkov();
 		//mr.testHashMap();
-		mr.compareMethods();
+		//mr.compareMethods();
+		//mr.testMarkov6();
+		mr.testMarkov5();
 		
 		
 	}

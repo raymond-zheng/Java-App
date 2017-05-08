@@ -42,6 +42,7 @@ public class EfficientMarkovModel extends AbstractMarkovModel{
 				hm.put(key, follows);
 			}
 		}
+		printHashMapInfo();
 	}
 	
 	public ArrayList<String> getFollows(String key){
@@ -86,12 +87,12 @@ public class EfficientMarkovModel extends AbstractMarkovModel{
 	
 	//TEES methods 
 	public void  printHashMapInfo(){
-		if(hm.size() <= 30){
-			System.out.println("Printing all the elements in the HashMap");
-			for(String key: hm.keySet()){
-				System.out.println("Key " + key + " : " + hm.get(key));
-			}
-		}
+//		if(hm.size() <= 30){
+//			System.out.println("Printing all the elements in the HashMap");
+//			for(String key: hm.keySet()){
+//				System.out.println("Key " + key + " : " + hm.get(key));
+//			}
+//		}
 		
 		System.out.println("There are " + hm.keySet().size() + " keys in the hashmap");
 		

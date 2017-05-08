@@ -80,4 +80,22 @@ public class MarkovRunnerWithInterface {
 		System.out.println("The nano time the markov model take is " + (System.nanoTime() - before));
 	}
 	
+	public void testMarkov6(){
+		EfficientMarkovModel emm6 = new EfficientMarkovModel(6);
+		FileResource fr = new FileResource("data/confucius.txt");
+		String st = fr.asString();
+		st = st.replace('\n', ' ');
+		//runModel(IMarkovModel markov, String text, int size, int seed)
+		runModel(emm6,st,500,792);
+		
+	}
+	
+	public void testMarkov5(){
+		EfficientMarkovModel emm5 = new EfficientMarkovModel(5);
+		FileResource fr = new FileResource("data/confucius.txt");
+		String st = fr.asString();
+		st = st.replace('\n', ' ');
+		//runModel(IMarkovModel markov, String text, int size, int seed)
+		runModel(emm5,st,500,531);
+	}
 }

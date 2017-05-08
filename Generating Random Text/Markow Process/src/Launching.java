@@ -7,6 +7,11 @@ public class Launching {
 		//tester.testGetFollowsWithFile();
 		MarkovRunner mr =  new MarkovRunner();
 		//mr.runMarkovFour();
+		//mr.runMarkovModel();
+		//mr.runMarkovZero();
+		//tester.testGetFollowsWithFile();
+		//mr.runMarkovOne();
+		//mr.runMarkovFour();
 		mr.runMarkovModel();
 	}
 	
