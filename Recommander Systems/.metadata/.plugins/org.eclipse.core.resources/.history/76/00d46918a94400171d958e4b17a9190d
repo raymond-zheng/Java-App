@@ -1,0 +1,33 @@
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class MovieRunnerAverage {
+	public void printAverageRatings (){
+		
+		// ratings_short.csv and ratedmovies_short.csv
+		SecondRatings sr = new SecondRatings("ratedmovies_short.csv","ratings_short.csv");
+		System.out.println(sr.getMovieSize() + " movies loaded");
+		System.out.println(sr.getRaterSize() + " raters loaded");
+		//call getAverageRatings to get every movie
+		//print in ascending order 
+		//use compareTo , Rating implements Comparable
+		ArrayList<Rating> sorted = sr.getAverageRatings(3);
+		//use Collections.sort for AraayList, to call compareTo of the method which implements Comparable
+		Collections.sort(sorted);
+		for(Rating r: sorted){
+			System.out.println(r.getValue() + "   " + sr.getTitle(r.getItem ()));
+		}
+		
+	}
+	
+	public void getAverageRatingOneMovie(){
+		SecondRatings sr = new SecondRatings("ratedmovies_short.csv","ratings_short.csv");
+		String title = "Godfather";
+		//System.out.println(sr.getAverageByID(sr.getID(title),0) + " " + title);
+		//getAverageById is private 
+		ArrayList<Rating> sorted = sr.getAverageRatings(0);
+		for(Rating r: sorted){
+			System.out.println(r.getValue() + "   " + sr.getTitle(r.getItem ()));
+		}
+	}
+}

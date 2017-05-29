@@ -1,0 +1,17 @@
+import java.util.ArrayList;
+
+public class MovieRunnerAverage {
+	public void printAverageRatings (){
+		
+		// ratings_short.csv and ratedmovies_short.csv
+		SecondRatings sr = new SecondRatings("ratedmovies_short.csv","ratings_short.csv");
+		System.out.println(sr.getMovieSize() + " movies loaded");
+		System.out.println(sr.getRaterSize() + " raters loaded");
+		//call getAverageRatings to get every movie
+		//print in ascending order 
+		//use compareTo , Rating implements Comparable
+		ArrayList<Rating> sorted = sr.getAverageRatings(3);
+		sorted.sort();
+		
+	}
+}

@@ -1,0 +1,9 @@
+
+public class MovieRunnerAverage {
+	public void printAverageRatings (){
+		
+		SecondRatings sr = new SecondRatings();
+		System.out.println(sr.getMovieSize() + " movies loaded");
+		System.out.println(sr.getRaterSize() + " raters loaded");
+	}
+}

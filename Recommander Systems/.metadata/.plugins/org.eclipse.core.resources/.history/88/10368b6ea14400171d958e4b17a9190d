@@ -1,0 +1,8 @@
+
+public class MovieRunnerAverage {
+	public void printAverageRatings (){
+		
+		SecondRatings sr = new SecondRatings();
+		
+	}
+}
