@@ -167,7 +167,7 @@ public class FirstRatings {
 		System.out.println(maxRater.toString() + " has/have most rating, which is "+ maxRated);
 		
 		//find the number of rating of the movie
-		System.out.println("There is/are " + movieRaters.size() + " rater rated for movie "+ movieId +  ", who is/are " + movieRaters.toString());
+		System.out.println("There is/are " + movieRaters.size() + " rater rated for this movie , who is/are " + movieRaters.toString());
 		
 		//find distinct movies rated by raters
 		System.out.println("There is/are " + movies.size() + " different movies");

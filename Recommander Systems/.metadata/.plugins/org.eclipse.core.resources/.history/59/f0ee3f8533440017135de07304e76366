@@ -44,7 +44,7 @@ public class FirstRatings {
 		int l = 0;
 		//maximum number of movies directed by any director
 		int max = -1;
-		ArrayList<Movie> movies = loadMovies("ratedmoviesfull.csv");
+		ArrayList<Movie> movies = loadMovies("ratedmovies_short.csv");
 		System.out.println("There is/are " + movies.size());
 		for(Movie m:movies){
 			if(m.getGenres().indexOf("Comedy") != -1){
@@ -80,7 +80,7 @@ public class FirstRatings {
 				maxMoviesDir.add(dir);
 			}
 		}
-		System.out.println("maximum number of films directed by one director : " + max);
+		
 		System.out.println("These directors have most movies: "+ maxMoviesDir.toString());
 		
 		System.out.println("There is/are " + c + " comedy");
@@ -117,64 +117,14 @@ public class FirstRatings {
 	//ratings.csv, 1048, work
 	//ratings_short.csv, 5 , work
 	public void testLoadRaters(){
-		ArrayList<Rater> raters = loadRaters("ratings.csv");
+		ArrayList<Rater> raters = loadRaters("ratings_short.csv");
 		System.out.println("There are " + raters.size() + " raters");
-		//rater id
-		String id = "193";
-		int maxRated = 0;
-		String movieId = "1798709";
-		ArrayList<String> movieRaters = new ArrayList<String>();
-		//find distinct movies rated by raters
-		ArrayList<String> movies = new ArrayList<String>();
-		int flag = 0;
 		for(Rater r : raters){
 			System.out.println("Rater " + r.getID() + " has " +  r.numRatings() + " ratings");
 			ArrayList<String> itemsRated = r.getItemsRated();
 			for(String item: itemsRated){
 				System.out.println("Movie " + item + " has rating of "+ r.getRating(item));
 			}
-			//for a specific rater
-			if(flag == 0) {
-				if(r.getID().equals(id)){
-					System.out.println("Rater "+ id + " has " + r.numRatings() + " ratings" );		
-					flag = 1;
-				}
-			}
-			
-			//find the maximum number of rating of any rater, part 1 
-			if(r.numRatings() > maxRated){
-				maxRated = r.numRatings();
-			}
-			//find the number of rating of the movie
-			if(r.hasRating(movieId)){
-				movieRaters.add(r.getID());
-			}
-			//find distinct movies rated by raters
-			for(String cur : itemsRated){
-				if(!movies.contains(cur)){
-					movies.add(cur);
-				}
-			}
 		}
-		
-		//find the maximum number of rating of any rater, part2 
-		ArrayList<String> maxRater = new ArrayList<String>();
-		for(Rater r : raters){
-			if(r.numRatings() == maxRated){
-				maxRater.add(r.getID());
-			}
-		}
-		System.out.println(maxRater.toString() + " has/have most rating, which is "+ maxRated);
-		
-		//find the number of rating of the movie
-		System.out.println("There is/are " + movieRaters.size() + " rater rated for movie "+ movieId +  ", who is/are " + movieRaters.toString());
-		
-		//find distinct movies rated by raters
-		System.out.println("There is/are " + movies.size() + " different movies");
 	}
-	
-	
-	
-	
-	
 }

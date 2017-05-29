@@ -1,0 +1,99 @@
+import edu.duke.*;
+import java.util.*;
+import org.apache.commons.csv.*;
+
+//Avoid redundant codes and reduce runtime complexity
+//NOTE: a movie can have multiple genres
+public class FirstRatings {
+	
+	public ArrayList<Movie> loadMovies(String filename){
+		String path = "data/" + filename;
+		FileResource fr = new FileResource(path);
+		CSVParser parser = fr.getCSVParser();
+		ArrayList<Movie> movies = new ArrayList<Movie>();
+		//need to call this each time while using the CSV files
+		//parser = fr.getCSVParser();
+		for(CSVRecord r:parser){
+			//r has the format:
+			//id,title,year,country,genre,director,minutes,poster
+			
+			//Movie's constructor
+			//Movie (String anID, String aTitle, String aYear, String theGenres, String aDirector,
+		    //String aCountry, String aPoster, int theMinutes)
+			
+			Movie m = new Movie(r.get("id"),r.get("title"),r.get("year"),r.get("genre"),r.get(
+					"director"),r.get("country"),r.get("poster"),Integer.parseInt(r.get("minutes")));
+			movies.add(m);
+			
+			
+		}
+		
+		return movies;
+	}
+	
+	public void  testLoadMovies(){
+		//most movies by any director
+		//director should be separated by comma
+		ArrayList<String> directorSeen = new ArrayList<String>();
+		HashMap<String,ArrayList<String>> dirMovies = new HashMap<String,ArrayList<String>>();
+		
+		//ratedmovies_short.csv,5 
+		//ratedmoviesfull.csv , 3143
+		//# of comedy
+		int c = 0;
+		//# of movies longer than 150
+		int l = 0;
+		//maximum number of movies directed by any director
+		int max = -1;
+		ArrayList<Movie> movies = loadMovies("ratedmovies_short.csv");
+		System.out.println("There is/are " + movies.size());
+		for(Movie m:movies){
+			if(m.getGenres().indexOf("Comedy") != -1){
+				c += 1;
+			}
+			if(m.getMinutes() > 150){
+				l +=1;
+			}
+			//use String[] instead of ArrayList<String>
+			String[] curDirs = m.getDirector().split(",");
+			for(String curDir : curDirs){
+				String title = m.getTitle();
+				if( directorSeen.contains(curDir)){
+					//only add title instead of Movie to the array list
+					dirMovies.get(curDir).add(title);
+					//maximum movies of any director must "occur" here
+					if(dirMovies.get(curDir).size() > max){
+						max = dirMovies.get(curDir).size();
+					}
+				}else{
+					directorSeen.add(curDir);
+					ArrayList<String> movieOfDir = new ArrayList<String>();
+					movieOfDir.add(title);
+					dirMovies.put(curDir, movieOfDir);
+				}
+			}
+			System.out.println(m);
+		}
+		
+		ArrayList<String> maxMoviesDir = new ArrayList<String>();
+		for(String dir: dirMovies.keySet()){
+			if(dirMovies.get(dir).size() == max){
+				maxMoviesDir.add(dir);
+				//System.out.println(dir);
+			}
+		}
+		//System.out.println(maxMoviesDir.size());
+		System.out.println("These directors have most movies: "+ maxMoviesDir.toString());
+		
+		System.out.println("There is/are " + c + " comedy");
+		System.out.println("There is/are " + l +" longer than 150 mins");
+		
+		
+	
+		
+		
+		
+		
+	}
+	
+}
