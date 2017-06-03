@@ -1,0 +1,180 @@
+import edu.duke.*;
+import java.util.*;
+import org.apache.commons.csv.*;
+
+//Avoid redundant codes and reduce runtime complexity
+public class FirstRatings {
+	
+	public ArrayList<Movie> loadMovies(String filename){
+		String path = "data/" + filename;
+		FileResource fr = new FileResource(path);
+		CSVParser parser = fr.getCSVParser();
+		ArrayList<Movie> movies = new ArrayList<Movie>();
+		//need to call this each time while using the CSV files
+		//parser = fr.getCSVParser();
+		for(CSVRecord r:parser){
+			//r has the format:
+			//id,title,year,country,genre,director,minutes,poster
+			
+			//Movie's constructor
+			//Movie (String anID, String aTitle, String aYear, String theGenres, String aDirector,
+		    //String aCountry, String aPoster, int theMinutes)
+			
+			Movie m = new Movie(r.get("id"),r.get("title"),r.get("year"),r.get("genre"),r.get(
+					"director"),r.get("country"),r.get("poster"),Integer.parseInt(r.get("minutes")));
+			movies.add(m);
+			
+			
+		}
+		
+		return movies;
+	}
+	
+	public void  testLoadMovies(){
+		//most movies by any director
+		//director should be separated by comma
+		ArrayList<String> directorSeen = new ArrayList<String>();
+		HashMap<String,ArrayList<String>> dirMovies = new HashMap<String,ArrayList<String>>();
+		
+		//ratedmovies_short.csv,5 
+		//ratedmoviesfull.csv , 3143
+		//# of comedy
+		int c = 0;
+		//# of movies longer than 150
+		int l = 0;
+		//maximum number of movies directed by any director
+		int max = -1;
+		ArrayList<Movie> movies = loadMovies("ratedmoviesfull.csv");
+		System.out.println("There is/are " + movies.size());
+		for(Movie m:movies){
+			if(m.getGenres().indexOf("Comedy") != -1){
+				c += 1;
+			}
+			if(m.getMinutes() > 150){
+				l +=1;
+			}
+			String[] curDirs = m.getDirector().split(",");
+			for(String curDir : curDirs){
+				String title = m.getTitle();
+				if( directorSeen.contains(curDir)){
+					dirMovies.get(curDir).add(title);
+					if(dirMovies.get(curDir).size() > max){
+						max = dirMovies.get(curDir).size();
+					}
+				}else{
+					directorSeen.add(curDir);
+					ArrayList<String> movieOfDir = new ArrayList<String>();
+					movieOfDir.add(title);
+					dirMovies.put(curDir, movieOfDir);
+					if(dirMovies.get(curDir).size() > max){
+						max = dirMovies.get(curDir).size();
+					}
+				}
+			}
+			System.out.println(m);
+		}
+		
+		ArrayList<String> maxMoviesDir = new ArrayList<String>();
+		for(String dir: dirMovies.keySet()){
+			if(dirMovies.get(dir).size() == max){
+				maxMoviesDir.add(dir);
+			}
+		}
+		System.out.println("maximum number of films directed by one director : " + max);
+		System.out.println("These directors have most movies: "+ maxMoviesDir.toString());
+		
+		System.out.println("There is/are " + c + " comedy");
+		System.out.println("There is/are " + l +" longer than 150 mins");
+	}
+	
+	//rater_id,movie_id,rating,time
+	public ArrayList<Rater> loadRaters(String filename){
+		String path = "data/" + filename;
+		FileResource fr = new FileResource(path);
+		CSVParser parser = fr.getCSVParser();
+		ArrayList<Rater> raters = new ArrayList<Rater>();
+		ArrayList<String> seenID = new ArrayList<String>();
+		
+		for(CSVRecord r : parser){
+			String curId = r.get("rater_id");
+			if(seenID.contains(curId)){ 
+				for(Rater existed : raters){
+					if(existed.getID().equals(curId)){
+						existed.addRating(r.get("movie_id"),Double.parseDouble(r.get("rating")));
+						break;
+					}
+				}
+			}else{
+				seenID.add(curId);
+				Rater rater = new Rater(curId);
+				rater.addRating(r.get("movie_id"),Double.parseDouble(r.get("rating")));
+				raters.add(rater);
+			}
+		}
+		return raters;
+	}
+	
+	//ratings.csv, 1048, work
+	//ratings_short.csv, 5 , work
+	public void testLoadRaters(){
+		ArrayList<Rater> raters = loadRaters("ratings.csv");
+		System.out.println("There are " + raters.size() + " raters");
+		//rater id
+		String id = "193";
+		int maxRated = 0;
+		String movieId = "1798709";
+		ArrayList<String> movieRaters = new ArrayList<String>();
+		//find distinct movies rated by raters
+		ArrayList<String> movies = new ArrayList<String>();
+		int flag = 0;
+		for(Rater r : raters){
+			System.out.println("Rater " + r.getID() + " has " +  r.numRatings() + " ratings");
+			ArrayList<String> itemsRated = r.getItemsRated();
+			for(String item: itemsRated){
+				System.out.println("Movie " + item + " has rating of "+ r.getRating(item));
+			}
+			//for a specific rater
+			if(flag == 0) {
+				if(r.getID().equals(id)){
+					System.out.println("Rater "+ id + " has " + r.numRatings() + " ratings" );		
+					flag = 1;
+				}
+			}
+			
+			//find the maximum number of rating of any rater, part 1 
+			if(r.numRatings() > maxRated){
+				maxRated = r.numRatings();
+			}
+			//find the number of rating of the movie
+			if(r.hasRating(movieId)){
+				movieRaters.add(r.getID());
+			}
+			//find distinct movies rated by raters
+			for(String cur : itemsRated){
+				if(!movies.contains(cur)){
+					movies.add(cur);
+				}
+			}
+		}
+		
+		//find the maximum number of rating of any rater, part2 
+		ArrayList<String> maxRater = new ArrayList<String>();
+		for(Rater r : raters){
+			if(r.numRatings() == maxRated){
+				maxRater.add(r.getID());
+			}
+		}
+		System.out.println(maxRater.toString() + " has/have most rating, which is "+ maxRated);
+		
+		//find the number of rating of the movie
+		System.out.println("There is/are " + movieRaters.size() + " rater rated for movie "+ movieId +  ", who is/are " + movieRaters.toString());
+		
+		//find distinct movies rated by raters
+		System.out.println("There is/are " + movies.size() + " different movies");
+	}
+	
+	
+	
+	
+	
+}

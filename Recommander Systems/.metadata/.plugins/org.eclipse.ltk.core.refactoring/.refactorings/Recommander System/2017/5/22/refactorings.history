@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 7 elements to &apos;Efficient Recommender/src&apos;&#x0A;- Original project: &apos;Recommander System&apos;&#x0A;- Destination element: &apos;Efficient Recommender/src&apos;&#x0A;- Original elements:&#x0A;     FirstRatings.java&#x0A;     Launch.java&#x0A;     SecondRatings.java&#x0A;     MovieRunnerAverage.java&#x0A;     Movie.java&#x0A;     Rater.java&#x0A;     Rating.java" description="Copy compilation units" destination="=Efficient Recommender/src" element1="/src&lt;{FirstRatings.java" element2="/src&lt;{Launch.java" element3="/src&lt;{SecondRatings.java" element4="/src&lt;{MovieRunnerAverage.java" element5="/src&lt;{Movie.java" element6="/src&lt;{Rater.java" element7="/src&lt;{Rating.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1496107113660" units="7" version="1.0"/>
+</session>
