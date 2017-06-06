@@ -6,8 +6,8 @@ import org.apache.commons.csv.*;
 public class FirstRatings {
 	
 	public ArrayList<Movie> loadMovies(String filename){
-		String path = "data/" + filename;
-		FileResource fr = new FileResource(path);
+		//String path = "data/" + filename;
+		FileResource fr = new FileResource(filename);
 		CSVParser parser = fr.getCSVParser();
 		ArrayList<Movie> movies = new ArrayList<Movie>();
 		//need to call this each time while using the CSV files

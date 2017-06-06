@@ -1,0 +1,26 @@
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
+public class DirectorsFilter implements Filter {
+	private String myDirector;
+	
+	public DirectorsFilter(String director){
+		myDirector = director;
+	}
+	
+	@Override
+	public boolean satisfies(String id) {
+		String[] directors = MovieDatabase.getDirector(id).split(",");
+		System.out.println("The following two lines should be 'equal' ");
+		System.out.println(Arrays.toString(directors));
+		System.out.println(MovieDatabase.getDirector(id));
+		System.out.println("Testing ends");
+		for(String d : directors){
+			if(myDirector.contains(d)){
+				return true;
+			}
+		}
+		return false;
+	}
+
+}

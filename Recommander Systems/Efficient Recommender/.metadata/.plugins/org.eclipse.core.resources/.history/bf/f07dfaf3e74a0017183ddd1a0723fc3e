@@ -1,0 +1,102 @@
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class MovieRunnerWithFilters {
+	
+	public void printAverageRatings (){
+		// ratings_short.csv and ratedmovies_short.csv
+		ThirdRatings tr = new ThirdRatings("ratings_short.csv");
+		System.out.println(tr.getRaterSize() + " raters loaded");
+		//can have parameter for the constructor
+		MovieDatabase.initialize("ratedmovies_short.csv");
+		//static 
+		System.out.println(MovieDatabase.size() + " movies loaded");
+		//call getAverageRatings to get every movie
+		//print in ascending order 
+		//use compareTo , Rating implements Comparable
+		int min = 1;
+		ArrayList<Rating> sorted = tr.getAverageRatings(min);
+		//use Collections.sort for AraayList, to call compareTo of the method which implements Comparable
+		Collections.sort(sorted);
+		for(Rating r: sorted){
+			System.out.println(r.getValue() + "   " + MovieDatabase.getTitle(r.getItem ()));
+		}
+		System.out.println("There are " +  sorted.size() + " movies with at least " + min + " ratings");
+	}
+	
+	public void printAverageRatingsByYear(){
+		ThirdRatings tr= new ThirdRatings("ratings_short.csv");
+		int year = 2000;
+		YearAfterFilter yaf = new YearAfterFilter(year);
+		int min = 1;
+		ArrayList<Rating> result = tr.getAverageRatingsByFilter(min,yaf);
+		Collections.sort(result);
+		System.out.println("There are " + result.size() + " movies found that are after year " + year +" and have at least" + min + " ratings");
+		for(Rating r: result){
+			System.out.println(r.getValue() + "   " + MovieDatabase.getYear(r.getItem())  + "  " + MovieDatabase.getTitle(r.getItem ()));
+		}
+	}
+	
+	public void printAverageRatingsByGenre(){
+		GenreFilter gf = new GenreFilter("Crime");
+		ThirdRatings tr = new ThirdRatings("ratings_short.csv");
+		ArrayList<Rating> result =tr.getAverageRatingsByFilter(1, gf);
+		Collections.sort(result);
+		System.out.println("found " + result.size() + " movies");
+		for(Rating r: result){
+			System.out.println(r.getValue() + "   "  + MovieDatabase.getTitle(r.getItem ()));
+			System.out.println("      "+ MovieDatabase.getGenres(r.getItem()));
+		}
+	}
+	
+	public void printAverageRatingsByMinutes(){
+		MinutesFilter mf = new MinutesFilter(110,170);
+		ThirdRatings tr = new ThirdRatings("ratings_short.csv");
+		ArrayList<Rating> result =tr.getAverageRatingsByFilter(1, mf);
+		Collections.sort(result);
+		System.out.println("found " + result.size() + " movies");
+		for(Rating r: result){
+			System.out.println("Rating : " + r.getValue() + " Length:  "+ MovieDatabase.getMinutes(r.getItem())+ "   "   + MovieDatabase.getTitle(r.getItem ()));
+		}
+	}
+	
+	public void printAverageRatingsByDirectors(){
+		DirectorsFilter df = new DirectorsFilter("Charles Chaplin,Michael Mann,Spike Jonze");
+		ThirdRatings tr = new ThirdRatings("ratings_short.csv");
+		ArrayList<Rating> result =tr.getAverageRatingsByFilter(1, df);
+		Collections.sort(result);
+		System.out.println("found " + result.size() + " movies");
+		for(Rating r: result){
+			System.out.println("Rating : " + r.getValue() + "   "   + MovieDatabase.getTitle(r.getItem ()));
+			System.out.println("        "+ MovieDatabase.getDirector(r.getItem()));
+		}
+	}
+	
+	public void  printAverageRatingsByYearAfterAndGenre(){
+		AllFilters af = new AllFilters();
+		String genre = "Romance";
+		GenreFilter gf = new GenreFilter(genre);
+		int year = 1980;
+		YearAfterFilter yaf = new YearAfterFilter(year);
+		af.addFilter(gf);
+		af.addFilter(yaf);
+		ThirdRatings tr = new ThirdRatings("ratings_short.csv");
+		ArrayList<Rating> result =tr.getAverageRatingsByFilter(1, af);
+		Collections.sort(result);
+		System.out.println("found "+ result.size() + " movies that are after year " + year + " and have genre " + genre );
+		for(Rating r: result){
+			System.out.println(r.getValue() + "  " + MovieDatabase.getYear(r.getItem()) +"  " + MovieDatabase.getTitle(r.getItem()));
+			System.out.println("        " + MovieDatabase.getGenres(r.getItem()));
+		}
+	}
+	
+	public void  printAverageRatingsByDirectorsAndMinutes (){
+		
+		
+		
+	}
+	
+	
+	
+	
+}
