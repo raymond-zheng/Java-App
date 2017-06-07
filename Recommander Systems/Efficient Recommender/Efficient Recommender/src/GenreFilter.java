@@ -8,7 +8,23 @@ public class GenreFilter implements Filter{
 	
 	@Override
 	public boolean satisfies(String id) {
-		return MovieDatabase.getGenres(id).contains(myGenre);
+		String[] genres = MovieDatabase.getGenres(id).split(",");
+		
+//		for(String d : directors){
+//			//really important line here
+//			d = d.trim();
+//			if(myDirector.contains(d)){
+//				return true;
+//			}
+//		}
+		for(String g: genres){
+			g = g.trim();
+			if(myGenre.contains(g)){
+				return true;
+			}
+		}
+		return false;
+		//return MovieDatabase.getGenres(id).contains(myGenre);
 	}
 
 }

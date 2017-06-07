@@ -1,0 +1,44 @@
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class MovieRunnerSimilarRatings {
+	public void printAverageRatings (){
+		// ratings_short.csv and ratedmovies_short.csv
+		ThirdRatings tr = new ThirdRatings("ratings.csv");
+		System.out.println(tr.getRaterSize() + " raters loaded");
+		//can have parameter for the constructor
+		MovieDatabase.initialize("ratedmoviesfull.csv");
+		//static 
+		System.out.println(MovieDatabase.size() + " movies loaded");
+		//call getAverageRatings to get every movie
+		//print in ascending order 
+		//use compareTo , Rating implements Comparable
+		int min = 35;
+		ArrayList<Rating> sorted = tr.getAverageRatings(min);
+		//use Collections.sort for AraayList, to call compareTo of the method which implements Comparable
+		Collections.sort(sorted);
+		for(Rating r: sorted){
+			System.out.println(r.getValue() + "   " + MovieDatabase.getTitle(r.getItem ()));
+		}
+		System.out.println("There are " +  sorted.size() + " movies with at least " + min + " ratings");
+	}
+	
+	public void  printAverageRatingsByYearAfterAndGenre(){
+		AllFilters af = new AllFilters();
+		String genre = "Drama";
+		GenreFilter gf = new GenreFilter(genre);
+		int year = 1990;
+		YearAfterFilter yaf = new YearAfterFilter(year);
+		af.addFilter(gf);
+		af.addFilter(yaf);
+		MovieDatabase.initialize("ratedmoviesfull.csv");
+		ThirdRatings tr= new ThirdRatings("ratings.csv");
+		ArrayList<Rating> result =tr.getAverageRatingsByFilter(8, af);
+		Collections.sort(result);
+		System.out.println("found "+ result.size() + " movies that are after year " + year + " and have genre " + genre );
+		for(Rating r: result){
+			System.out.println(r.getValue() + "  " + MovieDatabase.getYear(r.getItem()) +"  " + MovieDatabase.getTitle(r.getItem()));
+			System.out.println("        " + MovieDatabase.getGenres(r.getItem()));
+		}
+	}
+}

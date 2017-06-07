@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class EfficientRater {
+public class EfficientRater implements Rater{
     private String myID;
     //The key in the HashMap is a movie ID, and its value is a rating associated with this movie.
     private HashMap<String,Rating> myRatings;

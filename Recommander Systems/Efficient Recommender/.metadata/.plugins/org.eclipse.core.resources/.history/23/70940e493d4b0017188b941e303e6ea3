@@ -1,0 +1,39 @@
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class MovieRunnerSimilarRatings {
+	public void printAverageRatings (){
+		MovieDatabase.initialize("ratedmoviesfull.csv");
+		RaterDatabase.initialize();
+		FourthRatings fr = new FourthRatings();
+		System.out.println(fr.getRaterSize() + " raters loaded");
+		MovieDatabase.initialize("ratedmoviesfull.csv");
+		System.out.println(MovieDatabase.size() + " movies loaded");
+		int min = 35;
+		ArrayList<Rating> sorted = fr.getAverageRatings(min);
+		Collections.sort(sorted);
+		for(Rating r: sorted){
+			System.out.println(r.getValue() + "   " + MovieDatabase.getTitle(r.getItem ()));
+		}
+		System.out.println("There are " +  sorted.size() + " movies with at least " + min + " ratings");
+	}
+	
+	public void  printAverageRatingsByYearAfterAndGenre(){
+		AllFilters af = new AllFilters();
+		String genre = "Drama";
+		GenreFilter gf = new GenreFilter(genre);
+		int year = 1990;
+		YearAfterFilter yaf = new YearAfterFilter(year);
+		af.addFilter(gf);
+		af.addFilter(yaf);
+		MovieDatabase.initialize("ratedmoviesfull.csv");
+		ThirdRatings tr= new ThirdRatings("ratings.csv");
+		ArrayList<Rating> result =tr.getAverageRatingsByFilter(8, af);
+		Collections.sort(result);
+		System.out.println("found "+ result.size() + " movies that are after year " + year + " and have genre " + genre );
+		for(Rating r: result){
+			System.out.println(r.getValue() + "  " + MovieDatabase.getYear(r.getItem()) +"  " + MovieDatabase.getTitle(r.getItem()));
+			System.out.println("        " + MovieDatabase.getGenres(r.getItem()));
+		}
+	}
+}
